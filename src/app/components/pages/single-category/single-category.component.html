@@ -1,0 +1,37 @@
+<div class="bg-theme">
+  <div class="container">
+    <h1 class="text-white"style="margin-left: 20px;">choose a category</h1>
+    <p class="text-white">
+      Embark on a journey through the fascinating realms of the mind! Pick a
+      category that resonates with your curiosity, whether it's the intricate
+      paths of cognitive landscapes or the colorful tapestry of emotional
+      horizons. Dive into the world of psychology and discover the facets that
+      captivate your intellect. Your adventure begins with the choice of a
+      category – let your curiosity guide you!
+    </p>
+<br>
+    <select
+    [(ngModel)]="chosenCategory.name"
+      class="form-select form-select-lg mb-3"
+      aria-label="Large select example"
+    >
+      <option selected>...</option>
+      <option
+        *ngFor="let category of categories"
+        [value]="category.name"
+      >
+        {{ category.name }}
+      </option>
+    </select>
+    <button (click)="getBlogs()" > 
+get blogs
+    </button>
+  </div>
+</div>
+<div class="container mt-10 mb-5">
+  <div class="row">
+    <div class="col-md-4 postCard" *ngFor="let blog of blogs">
+      <app-post-card [blog]="blog"></app-post-card>
+    </div>
+  </div>
+</div>

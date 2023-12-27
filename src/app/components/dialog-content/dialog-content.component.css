@@ -1,0 +1,124 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+body {
+    font-family: 'Playfair Display', serif;
+	background: var(--secondary-color);
+
+}
+.form-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 57vh;
+    width: 90vh;
+}
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: whitesmoke;
+	padding: 20px;
+	width: 800px;
+	height: 500px;
+    border-radius: 7px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.img-area {
+	flex: 1;
+	padding: 20px;
+	text-align: center;
+    size:10px
+}
+.img-area img {
+	max-width: 100%;
+	height: auto;
+}
+.form-area {
+    background: whitesmoke;
+
+	flex: 1;
+	padding: 20px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.form-area h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+.single-form {
+	margin-bottom: 20px;
+}
+input[type="text"], input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+input[type="submit"] {
+    background-color: rgb(175, 227, 238);
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+@media (max-width: 768px) {
+	.wrapper {
+		flex-direction: column;
+		text-align: center;
+		height: auto;
+		width: auto;
+	}
+	.img-area, .form-area {
+		flex: none;
+	}
+	.img-area {
+		margin-bottom: 20px;
+	}
+ 
+}
+.welcome{
+    
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+.forgotPassword{
+    color:black;
+    margin-right: 205px;
+    font-size: small;
+    margin-top: -50px;
+    font-style: italic;
+}
+.btn{
+    margin-top: 50px;
+}
+.createAccount{
+    background-color: whitesmoke;
+    font-style: italic;
+    font-size: small;
+    border: 0px;
+    margin-top: 70px;
+
+    height: 35px;
+}
+.signUpInput{
+    height: 30px;
+}
+.alreadyhaveaccount{
+width:180px;
+    color:black;
+    font-size: small;
+    font-style: italic;
+    border: 0px;
+}
+.join{
+    margin-top: -20px;
+    margin-bottom: 30px;
+    font-size: large;
+}

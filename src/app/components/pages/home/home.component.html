@@ -1,0 +1,48 @@
+<section class="featured-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="text-white">Trending posts</h2>
+        <br />
+        <p class="text-white">
+          Explore the dynamic world of psychology by delving into the realm of
+          trending blogs. Step out of your comfort zone and embark on a journey
+          of discovery, for within the diverse landscape of psychology lies a
+          treasure trove of insights waiting to be unearthed. By venturing
+          beyond familiar territories, you open yourself to the possibility of
+          gaining a broader perspective and acquiring a wealth of global
+          knowledge across various fields within psychology. The evolving nature
+          of the discipline invites you to challenge preconceptions and embrace
+          the richness of diverse perspectives, offering an opportunity to
+          enhance your understanding and appreciation of the multifaceted
+          aspects of human behavior and cognition. So, take a leap into the
+          realm of trending psychology blogs, where the exchange of ideas knows
+          no boundaries, and the exploration of different fields promises a
+          profound and enriching experience.
+        </p>
+        <br />
+      </div>
+    </div>
+    <div  class="containertrending row " [@swipeAnimation]="currentIndex">
+      <div class="col-lg-3" *ngFor="let blog of displayedTrendingBlogs">
+        <app-post-card [blog]="blog"></app-post-card>
+      </div>
+    </div>
+    <button class="btn swipeleft" (click)="swipeLeft()"><i class="fa-solid fa-angles-right"></i></button>
+    <button class="btn swipeRight" (click)="swipeRight()"><i class="fa-solid fa-angles-left"></i></button>
+
+  </div>
+</section>
+
+<section class="container mt-5" *ngIf="token!=null">
+  <div class="col-md-12 text-center">
+    <h2>For you posts</h2>
+    <br />
+
+  </div>
+  <div class="row" >
+    <div class="col-lg-4" *ngFor="let blog of ForYouBlogs">
+      <app-post-card [blog]="blog"></app-post-card>
+    </div>
+  </div>
+</section>

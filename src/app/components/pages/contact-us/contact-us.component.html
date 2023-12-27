@@ -1,0 +1,74 @@
+<body>
+  <br />
+  <div class="titre">
+    <h1>Contact-Us</h1>
+  </div>
+  <p class="paragraph1">
+    Welcome to BIRDY – a space where we explore the fascinating world of
+    psychology together. Whether you have a burning question, need advice, or
+    simply want to share your thoughts, we'd love to hear from you! Our team of
+    passionate psychologists and mental health enthusiasts is here to provide
+    support, guidance, and engage in meaningful conversations. Feel free to
+    reach out if you're curious about a specific topic, seeking advice on mental
+    well-being, or if you have suggestions for future articles. We value your
+    input and believe that open communication is key to building a supportive
+    community.
+  </p>
+
+  <br /><br />
+  <div class="container-split">
+    <div class="left-container">
+      <form class="form">
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input
+            [(ngModel)="email"]
+              type="email"
+              class="form-control"
+              id="inputEmail3"
+              placeholder="email adresse"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputMessage" class="col-sm-2 col-form-label"
+            >Message</label
+          >
+          <div class="col-sm-10">
+            <textarea
+            [(ngModel)="message"]
+              class="form-control"
+              id="inputMessage"
+              rows="4"
+              placeholder="write a question or a message.."
+            ></textarea>
+          </div>
+        </div>
+        <br />
+
+        <button type="submit" class="btn sendBtn" (click)="sendContactMessage()">send</button>
+      </form>
+    </div>
+
+    <div class="right-container">
+      <div class="content">
+        <br />
+
+        <p class="paragraph">
+          Drop us an email, or connect through social media. Your stories,
+          questions, and feedback are important to us, and we look forward to
+          connecting with you on this journey of self-discovery and
+          understanding.
+          <br />
+          Thank you for being a part of our community !
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <br /><br /><br />
+</body>

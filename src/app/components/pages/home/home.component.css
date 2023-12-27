@@ -1,0 +1,45 @@
+.featured-section{
+    background-color: rgb(39, 69, 95);
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
+}
+h2{
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+.containertrending {
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 25px;
+    margin-right: 35px;
+
+  }
+  
+  .object {
+    width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  .swipeleft{
+    border-radius: 40px;
+    background-color: whitesmoke;
+    position: absolute;
+    right:0;
+    margin-right: 20px;
+    margin-top:-230px;
+   /* transform: translateX(2900%) translateY(-600%);*/
+  }
+  .swipeRight{
+    border-radius: 40px;
+    background-color: whitesmoke;
+    position: absolute;
+
+
+
+
+    transform: translateX(-70%) translateY(-600%);
+  }

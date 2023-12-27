@@ -1,0 +1,23 @@
+.bg-theme{
+    background-color: var(--primary-color);
+    padding-left: 9rem;
+    padding-right: 9rem;
+
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+
+
+}
+h1{
+    text-transform: uppercase;
+}
+.postCard{
+    padding-left: 2rem;
+    padding-top: 2rem;
+    
+}
+.form-select{
+    width:70%;
+    height:45px;
+    border-radius: 10px;
+}

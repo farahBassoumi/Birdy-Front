@@ -1,0 +1,40 @@
+<div class="card">
+    <img src="https://images.pexels.com/photos/18822188/pexels-photo-18822188/free-photo-of-mer-oiseau-eau-ete.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+     alt="posy-image" class="card-img-top">
+     <div class="card-body">
+        <div class="row">
+        <div class="col-lg-3 ">
+            <small class="bg-light label label1 tag text-center">{{blog.category}}</small>
+
+        </div>
+        </div>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+
+            <h5 class="mt-1 ">{{shortenTitle(blog.title)}}</h5>
+            <p>{{blog.content}}</p>
+            <div style="display: flex; align-items: center;">
+              <i class="fa-regular fa-eye"></i>
+              <p  class="numberViews ml-2 mt-2">{{blog.views}}</p>
+
+            </div>
+          
+          </div>
+          
+          
+          
+
+
+    <p class="post-content">
+
+    {{blog.content}} 
+    <span class="ellipsis">...</span>
+    </p>
+    
+     <a class="view-more" routerLink="/post" (click)="redirectToSinglePost()"> view more</a>
+    <small class="bg-light lastUpdated text-center ml-3">LAST UPDATED - 22/2023</small>
+
+     </div>
+
+</div>
+<br>
+<br>

@@ -1,0 +1,31 @@
+
+.container-fluid{
+    font-size: 15px;
+    position: relative;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color:var(--blue-navbar-color) !important;
+  }
+  .navbar a {
+    color:var(--primary-color); 
+    text-decoration: none;
+    margin: 0 35px; 
+  }
+  .nav-link{
+    text-transform:uppercase;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar-nav{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-nav a.active {
+    border-bottom: 4px solid var(--dark-blue-color);
+}
+  

@@ -1,0 +1,73 @@
+<section class="title">
+  <h2
+    class="text-center titleText"
+    style="font-family: 'Playfair Display', serif; font-weight: bold"
+  >
+    Add new blog
+  </h2>
+</section>
+<section class="new-blog gray-bg">
+  <div class="blue">
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Title:</label>
+      <input
+        [(ngModel)]="blogRequest.title"
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder=""
+      />
+    </div>
+
+    <div class="name">
+      <label for="">Content:</label>
+      <textarea
+        [(ngModel)]="blogRequest.content"
+        class="form-control"
+        id="paragraphInput"
+        rows="5"
+      ></textarea>
+    </div>
+
+    <div class="upload">
+      <p style="font-size: larger">Blog image:</p>
+      <input type="file" class="form-control" (input)="fileChoosen($event)" />
+      <br />
+
+      <select
+        class="form-select form-select-lg mb-3"
+        aria-label="Large select example"
+        [(ngModel)]="chosenCategory.name"
+        (ngModelChange)="onCategoryChange()"
+
+      >
+        <option selected>...</option>
+        <option *ngFor="let category of categories" [value]="category.name">
+          {{ category.name }}
+        </option>
+      </select>
+      <label for="formGroupExampleInput" class="form-label"
+      >add a new category:</label
+    >
+      <div class="row">
+        <div class="col-6">
+        
+          <input
+            [(ngModel)]="newCategory.name"
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder=""
+          />
+        </div>
+        <div class="col-6">
+          <button class="btn btnSave " (click)="onBlogAddedSuccess()">
+            add category
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btnSave" (click)="addBlog()">share</button>
+  </div>
+</section>

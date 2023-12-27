@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- divinectorweb.com -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Login Form Design using flexbox</title>
+    <link rel="stylesheet" href="./dialog-content.component.css" />
+  </head>
+  <body>
+    <div class="form-box container-fluid">
+      <div class="wrapper row">
+        <div class="col-md-6">
+          <section class="left-container">
+            <!-- Content for the left container goes here -->
+            <div class="img-area">
+              <img src="assets/brain.jpg" alt="" />
+            </div>
+          </section>
+        </div>
+
+        <div class="col-md-6">
+          <section>
+            <div *ngIf="template == 'login'">
+              <div class="form-area">
+                <p class="welcome">
+                  Welcome back to birdy! <br />Log in to your account to view
+                  today's blogs!
+                </p>
+                <form>
+                  <div class="single-form">
+                    <input
+                    [(ngModel)]="loginRequest.username"
+                    name="username" 
+                      class="form-control"
+                      type="text"
+                      placeholder="Username"
+                    />
+                  </div>
+                  <div class="single-form">
+                    <input
+                    [(ngModel)]="loginRequest.password"
+                    name="password" 
+                      class="form-control"
+                      type="password"
+                      placeholder="Password"
+                    />
+                  </div>
+                 
+                  <a class="forgotPassword" href=""> forgot your password?</a>
+
+                  <input
+                    style=" width: 250px"
+                    (click)="login()"
+                    class="btn text-center"
+                    type="submit"
+                    value="Login"
+                  />
+                  <button
+                    class="btn  createAccount text-center"
+                    (click)="switch()"
+                  >
+                    don't have an account ?
+                  </button>
+                </form>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div *ngIf="template == 'sign up'">
+                <div class="form-area">
+                  <div class="join">
+                    Join our community !
+                  </div>
+                  <form>
+                    <div class="single-form ">
+                      <input
+                      [(ngModel)]="signUpRequest.username"
+                      name="username" 
+                        class="form-control signUpInput"
+                        type="text"
+                        placeholder="Username"
+                      />
+                    </div>
+                    <div class="single-form ">
+                      <input
+                      [(ngModel)]="signUpRequest.email"
+                      name="email" 
+                        class="form-control signUpInput"
+                        type="text"
+                        placeholder="Email"
+                      />
+                    </div>
+                  
+                      <div class="single-form " >
+                        <input
+                        [(ngModel)]="signUpRequest.password"
+                        name="password" 
+                          class="form-control signUpInput"
+                          type="password"
+                          placeholder="Password"
+                        />
+                      </div>
+  
+                      <div class="single-form">
+                        <input
+                          class="form-control signUpInput"
+                          type="password"
+                          placeholder=" Confirm password"
+                        />
+                      </div>
+                  
+                    <button
+                      class="btn form-control createAccount " style="    background-color: rgb(181, 228, 237);
+                       color:white ; margin-top: 0px; font-size: large; " 
+                     (click)="signUp()"
+                    >
+                     sign up
+                    </button>
+                    <button (click)="switch()"  class=" btn alreadyhaveaccount" >already have an account?</button>
+
+                  </form>
+                </div>
+              </div>
+             
+
+
+
+           
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

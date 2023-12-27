@@ -1,0 +1,152 @@
+
+
+*{
+  font-family: Playfair;
+
+}
+.search-bar{
+    height: 30px;
+    width: 800%; 
+    max-width: 400px; 
+    border: none;
+    background:transparent;
+    border-bottom: 2px solid var(--blue-color); 
+    outline: none;
+    transition: border-bottom-color 0.3s ease;  
+    font-size: 15px;
+    color: #333;
+    background-color: transparent;
+    width:250px;
+
+}
+.search-bar:focus {
+  border-bottom-color: rgb(255, 222, 242); /* Adjust the color as needed */
+}
+
+.navbar{
+    background-color:rgb(225, 245, 255);
+    color:var(--secondary-color);
+    height: 55px;
+}
+.search-input{
+border-radius: 20px;
+color:var(--primary-color);
+width:300px;
+border-color: #bebebe;
+border-width: 0px !important;
+height: 30px;  
+
+}
+
+.search-input::before {
+    content: '\f002';
+    font-family: 'Font Awesome 5 Free'; 
+    position: absolute;
+    top: 50%;
+    left: 10px; 
+    transform: translateY(-50%);
+    color: #555; 
+  }
+
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+
+    color: #555;
+  }
+.logo {
+    size:300px;
+    height:40px;
+    width:45px;
+}
+
+.position-relative{
+    position:relative;
+}
+.logoWord{
+width:20px;
+transform: translateX(303%);
+
+}
+.BIRDY {
+  color: black;
+font-weight: bold;
+  }
+  .absolute-center__end{
+   
+    right:0px;
+    top : 55%;
+  }
+
+.btnSearch{
+    border: none;
+    background: transparent;
+    color:var(--blue-color); 
+}
+
+.loop{
+    color:#888888;
+    border-width: 2px;
+    border-radius: 30px;
+}
+
+
+body {
+  padding-top: 56px; 
+}
+
+
+
+.navbar-brand {
+  color: #ffffff; /* Change the text color as needed */
+}
+
+.navbar-brand img {
+  height: 30px; /* Adjust the logo height as needed */
+  margin-right: 10px; /* Add spacing between logo and text */
+}
+
+.navbar-text {
+  color: #ffffff; /* Change the text color as needed */
+}
+
+.form-inline {
+  width: 100%;
+  justify-content: center;
+}
+
+.navbar-toggler {
+  border-color: #ffffff; /* Change the toggle button color as needed */
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff; /* Change the toggle button icon color as needed */
+}
+
+@media (max-width: 767px) {
+  .navbar-nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbar-nav .nav-item {
+    text-align: center;
+  }
+}
+h3{
+  font-family: 'Playfair Display', serif;
+}
+.userBtn{
+  border:none;
+  background:transparent;
+font-weight: bold;
+}
+.userBtn:hover{
+ color:var(--blue-color) ;
+}
+.fa-user{
+}

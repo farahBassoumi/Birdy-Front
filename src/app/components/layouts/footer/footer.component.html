@@ -1,0 +1,87 @@
+<footer>
+    <br>
+    <br>
+<div class="container">
+<div class="row">
+    
+<div class="col-md-3 text-center">
+<div class="site-logo">
+    <div>
+        <div class="rowTitle">
+            useful links
+        </div>
+        <br>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a  routerLink="/home" class="nav-link">Home</a>
+                <a  routerLink="/about" class="nav-link">About-Us</a>
+
+                <a  routerLink="/terms-conditions" class="nav-link">Terms & Conditions</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+
+
+<div class="col-md-6 text-center">
+    <div class="site-logo">
+        <div>
+            <div class="rowTitle">
+                newsletter
+            </div>
+<br> 
+            <ul class="nav justify-content-center">
+                <div class="nav-item ">
+                    <div [formGroup]="emailForm">
+                      <input class="form-control emailInput" id="email" formControlName="email" type="text" placeholder="email adresse">
+                    <div *ngIf="emailForm.get('email')?.hasError('email') && emailForm.get('email')?.touched" class="text-danger">
+                        Please enter a valid email address.
+                      </div>
+                    </div>
+                   
+                 <button (click)="subscribe()" class="btn subscribeBtn">subscribe</button>
+                </div>
+            </ul>
+        </div>
+    </div> 
+    </div>
+
+
+
+
+
+    <div class="col-md-3 text-center">
+        <div class="rowTitle">
+            Contact
+
+        </div>
+<br>
+        <div class="site-logo">
+            <div>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a routerLink="/contact" class="nav-link">Contact-us</a>
+                     
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        </div>
+
+
+
+
+</div>
+</div>
+
+
+<p class=" text-center copyright">
+    Copyright   ©   2023   birdy   blog website
+  </p>
+<br>
+</footer>

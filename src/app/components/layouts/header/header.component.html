@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">
+      <div class="d-flex align-items-center" style="padding-left: 10px">
+        <img
+          src="/assets/birdy2.png"
+          style="width: 30px; height: 30px"
+          class="ml-3"
+          alt="Your Logo"
+          class="mr-2"
+        />
+        <h3 class="mb-0 BIRDY">BIRDY</h3>
+      </div>
+    </a>
+
+    <div class="" style="width: 30%"></div>
+
+    <div class="collapse navbar-collapse">
+      <form class="form-inline my-2 my-lg-0">
+        <div class="position-relative">
+          <input
+            class="search-bar"
+            type="search"
+            placeholder="search.."
+            aria-label="Search"
+          />
+          <button class="btnSearch" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="token == null">
+      <button class="userBtn" (click)="openDialogLogin()">Connect
+      </button>
+      <button class="userBtn" (click)="openDialogSignUp()">Join us</button>
+    </div>
+    <div *ngIf="token != null">
+      <button class="userBtn" routerLink="new-blog"><i class="fa-solid fa-file-circle-plus"></i></button>
+
+      <button class="userBtn" (click)="navigateProfile()">        <i class="fa-solid fa-user"></i>
+      </button>
+      <button class="userBtn" (click)="logOut()">      <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </nav>
+</header>
