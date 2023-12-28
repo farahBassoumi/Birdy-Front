@@ -27,3 +27,10 @@ color:whitesmoke;
 .titleText{
     padding-top: 35px;
 }
+.choosePic-Container{
+margin-top: 30px;
+padding-bottom: 100px;
+}
+.choosePic-Container input{
+    margin-bottom: 170px;
+}

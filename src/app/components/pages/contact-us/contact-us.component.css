@@ -6,8 +6,8 @@ body{
     font-family: Playfair;
 }
 *{
-    background-color: var(--secondary-color);
-border-radius: 50px;
+  background-color:rgb(225, 245, 255);
+  border-radius: 50px;
 }
 
 .container-split {

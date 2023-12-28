@@ -44,6 +44,7 @@ export class SinglePostComponent implements OnInit {
       dislikes: 0,
       userId: '',
       views: 0,
+      image:''
     };
 
     const blogid = localStorage.getItem('blogId');

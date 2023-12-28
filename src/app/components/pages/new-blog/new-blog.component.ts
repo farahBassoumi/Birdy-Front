@@ -7,6 +7,7 @@ import { testModel } from 'src/app/models/testModel.model';
 import { BlogService } from 'src/app/services/blog.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UploadPhotoModel } from 'src/app/models/uploadPhoto.model';
 
 @Component({
   selector: 'app-new-blog',
@@ -15,6 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class NewBlogComponent implements OnInit {
   image: any;
+  choosePic: boolean = true;
   categories: category[] = [];
   newCategory: testModel = {
     name: '',
@@ -36,6 +38,10 @@ export class NewBlogComponent implements OnInit {
     categoryId: '',
     userId: '',
   };
+  uploadImageRequest: UploadPhotoModel = {
+    id: 'eab32c34-1462-474b-3559-08dbfcceb79a',
+    image: new FormData(),
+  };
 
   constructor(
     private blogService: BlogService,
@@ -46,7 +52,7 @@ export class NewBlogComponent implements OnInit {
 
   ngOnInit() {
     const userIdFromLocalStorage = localStorage.getItem('userId');
-    this.blogRequest.userId=userIdFromLocalStorage|| '';
+    this.blogRequest.userId = userIdFromLocalStorage || '';
     this.categoryService.getCategories().subscribe((res) => {
       //cv
       this.categories = res;
@@ -64,17 +70,23 @@ export class NewBlogComponent implements OnInit {
 
   submitPhoto(): void {
     this.fd = new FormData();
-    //this.submitted=true;
     if (this.selectedFile) {
-      //this.fd.append('profileImage',this.image,this.image.name);
-      this.fd.append('file', this.selectedFile);
+      //this.fd.append('file', this.selectedFile);
+
+
+      this.fd.append('Image', this.selectedFile, this.selectedFile.name); // Match the property name on the server-side (ImageModel.Image)
+      this.fd.append('BlogId', 'eab32c34-1462-474b-3559-08dbfcceb79a'); // Replace with the actual BlogId
+  
+      this.uploadImageRequest.image = this.fd;
+      console.log(this.uploadImageRequest);
       this.http
-        .post<any>('https://localhost:7054/api/uploadImage', this.fd)
+        .post<any>(
+          'https://localhost:7054/api/Blog/ImageUpload',
+          this.fd
+        )
         .subscribe(
           (res) => {
             console.log(res);
-
-            this.imageUrl = res.imageUrl;
           },
 
           (err) => {
@@ -82,6 +94,9 @@ export class NewBlogComponent implements OnInit {
           }
         );
     }
+  }
+  next() {
+    this.choosePic = true;
   }
 
   addCategory() {
@@ -98,80 +113,6 @@ export class NewBlogComponent implements OnInit {
     this.ngOnInit();
   }
 
-  /*
-  getImageUrl(): void {
-    console.log('hhhhhh');
-    const fileName = "21083db5-c8e0-4557-8248-8aceb6e5b42c_Counseller vs psychologist.JPG";
-    this.http
-      .get<any>(
-        `https://localhost:7054/api/Blog/images/${fileName}`
-      ).subscribe(
-        (res) => {
-          console.log(res.path);
-          this.imageUrl=res.path;
-        },
-
-        (err) => {
-          console.log('error' + err);
-        }
-      );
-  }
-
-  /*
-       this.http
-        .post<any>('https://localhost:7054/api/uploadImage', this.fd)
-        .subscribe((res) =>{ console.log(res);
-        this.ImageFromServer = res;},
-
-        (err)=>{
-          console.log(err);
-        });
-    } else console.log('selectedFile is null');
-  }
-
-
-getPhoto(){
-
-
-  this.http.get<any[]>('https://localhost:7054/api/GetImage').subscribe(
-    (files) => {
-      this.ImageFromServer = files;
-    },
-    (error) => {
-      console.error('Error loading uploaded files:', error);
-    }
-  );
-}*/
-
-  /*this.blogService.uploadFile(this.selectedFile).subscribe(
-    (response) => {
-      console.log('Image uploaded successfully:', response);
-      // Handle the response from the server, which may include the path to the saved image.
-    },
-    (error) => {
-      console.error('Error uploading image:', error);
-    }
-  );*/
-
-  /*
-if(this.selectedFile){
-this.fd.append('profileImage',this.image,this.image.name);
-console.log('sumitted  '+this.submitted+'  profileimangename  '+this.image+this.image.name);
-}
-if(!this.image)
-console.log('image null');
-}
-
-  /*
-  public formData=new FormData();
-
-  public onChangeFile(event:any){
-if(event.target.files.length>0){
-  const file=event.target.files[0];
-  this.formData.append('file',file);
-  
-}*/
-
   onCategoryChange() {
     this.categoryService.getCategoryByName(this.chosenCategory).subscribe({
       next: (res: any) => {
@@ -186,11 +127,13 @@ if(event.target.files.length>0){
 
   addBlog() {
     //cv
+    this.choosePic = true;
 
     console.log('blogrequest  ' + this.blogRequest.categoryId);
     this.blogService.addBlog(this.blogRequest).subscribe({
       next: (res: any) => {
-        console.log(res);
+        console.log(res.blog.id);
+        this.uploadImageRequest.id = res.blog.id;
         this.onBlogAddedSuccess();
       },
       error: (err: any) => {

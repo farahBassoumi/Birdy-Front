@@ -7,6 +7,6 @@ category:string;
  userId:string;
 likes:number;
 dislikes:number;
-   
+   image:string;
 
 }

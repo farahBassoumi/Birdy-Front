@@ -11,7 +11,7 @@ export class PostCardComponent {
   constructor(private router:Router) {
     // Default value just to satisfy TypeScript
     this.blog = { id: '', title: '', content: '',   category:'',
-    likes:0,dislikes:0,userId:'',views:0 };
+    likes:0,dislikes:0,userId:'',views:0 ,image:''};
   }
 @Input() blog :blog;
 

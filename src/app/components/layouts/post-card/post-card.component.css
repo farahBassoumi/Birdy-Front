@@ -23,7 +23,7 @@ small{
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.6;
-    max-height: 100px; /* Adjust based on the desired height */
+    height: 50px; /* Adjust based on the desired height */
   }
   .view-more {
     color: #3498db;
@@ -37,4 +37,16 @@ small{
     overflow: hidden;
     vertical-align: bottom;
     text-overflow: ellipsis;
+  }
+.image-container img{
+height: 110%;
+object-fit: cover;
+width: 100%;
+align-items: center;
+justify-content: center;
+}
+
+  .image-container{
+height: 300px !important;
+width:100%
   }

@@ -10,7 +10,7 @@
     max-width: 400px; 
     border: none;
     background:transparent;
-    border-bottom: 2px solid var(--blue-color); 
+    border-bottom: 2px solid rgb(143, 202, 238); 
     outline: none;
     transition: border-bottom-color 0.3s ease;  
     font-size: 15px;
@@ -20,7 +20,7 @@
 
 }
 .search-bar:focus {
-  border-bottom-color: rgb(255, 222, 242); /* Adjust the color as needed */
+  border-bottom-color: rgb(57, 138, 219); /* Adjust the color as needed */
 }
 
 .navbar{
@@ -147,6 +147,4 @@ font-weight: bold;
 }
 .userBtn:hover{
  color:var(--blue-color) ;
-}
-.fa-user{
 }

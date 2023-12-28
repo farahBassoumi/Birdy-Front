@@ -8,66 +8,75 @@
 </section>
 <section class="new-blog gray-bg">
   <div class="blue">
-    <div class="mb-3">
-      <label for="formGroupExampleInput" class="form-label">Title:</label>
-      <input
-        [(ngModel)]="blogRequest.title"
-        type="text"
-        class="form-control"
-        id="formGroupExampleInput"
-        placeholder=""
-      />
-    </div>
+    <div *ngIf="choosePic == false">
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Title:</label>
+        <input
+          [(ngModel)]="blogRequest.title"
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput"
+          placeholder=""
+        />
+      </div>
 
-    <div class="name">
-      <label for="">Content:</label>
-      <textarea
-        [(ngModel)]="blogRequest.content"
-        class="form-control"
-        id="paragraphInput"
-        rows="5"
-      ></textarea>
-    </div>
+      <div class="name">
+        <label for="">Content:</label>
+        <textarea
+          [(ngModel)]="blogRequest.content"
+          class="form-control"
+          id="paragraphInput"
+          rows="5"
+        ></textarea>
+      </div>
 
-    <div class="upload">
-      <p style="font-size: larger">Blog image:</p>
-      <input type="file" class="form-control" (input)="fileChoosen($event)" />
-      <br />
+      <div class="upload">
+        <p style="font-size: larger">choose a category:</p>
 
-      <select
-        class="form-select form-select-lg mb-3"
-        aria-label="Large select example"
-        [(ngModel)]="chosenCategory.name"
-        (ngModelChange)="onCategoryChange()"
-
-      >
-        <option selected>...</option>
-        <option *ngFor="let category of categories" [value]="category.name">
-          {{ category.name }}
-        </option>
-      </select>
-      <label for="formGroupExampleInput" class="form-label"
-      >add a new category:</label
-    >
-      <div class="row">
-        <div class="col-6">
-        
-          <input
-            [(ngModel)]="newCategory.name"
-            type="text"
-            class="form-control"
-            id="formGroupExampleInput"
-            placeholder=""
-          />
-        </div>
-        <div class="col-6">
-          <button class="btn btnSave " (click)="onBlogAddedSuccess()">
-            add category
-          </button>
+        <select
+          class="form-select form-select-lg mb-3"
+          aria-label="Large select example"
+          [(ngModel)]="chosenCategory.name"
+          (ngModelChange)="onCategoryChange()"
+        >
+          <option selected>...</option>
+          <option *ngFor="let category of categories" [value]="category.name">
+            {{ category.name }}
+          </option>
+        </select>
+        <label for="formGroupExampleInput" class="form-label"
+          >does not exist? add one!</label
+        >
+        <div class="row">
+          <div class="col-6">
+            <input
+              [(ngModel)]="newCategory.name"
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder=""
+            />
+          </div>
+          <div class="col-6">
+            <button class="btn btnSave" (click)="onBlogAddedSuccess()">
+              add category
+            </button>
+          </div>
         </div>
       </div>
+    
+      <button class="btn btnSave" (click)="addBlog()">next</button>
     </div>
+    <div class="choosePic-Container" *ngIf="choosePic == true">
 
-    <button class="btn btnSave" (click)="addBlog()">share</button>
+
+
+      
+      <p style="font-size: larger" class="mb-4 ">choose an image:</p>
+      <input type="file" class="form-control " (input)="fileChoosen($event)" />
+      <br />
+      <button class="btn btnSave" (click)="submitPhoto()">share</button>
+
+    </div>
   </div>
 </section>
