@@ -6,6 +6,7 @@ import { comment } from 'src/app/models/comment.model';
 import { testModel } from 'src/app/models/testModel.model';
 import { BlogService } from 'src/app/services/blog.service';
 import { CommentService } from 'src/app/services/comment.service';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-single-post',
   templateUrl: './single-post.component.html',
@@ -13,6 +14,7 @@ import { CommentService } from 'src/app/services/comment.service';
 })
 export class SinglePostComponent implements OnInit {
   blog: blog;
+  blogAuthor: string="";
   thumbsup: boolean = false;
   thumbsdown: boolean = false;
   thumbsUpRating: number = 0;
@@ -22,7 +24,9 @@ export class SinglePostComponent implements OnInit {
     blogId: '',
     userId: '',
   };
-
+  getUserByIdRequest:testModel={
+  name:''
+}
   comments: comment[] = [];
 
   blogId: any;
@@ -33,7 +37,8 @@ export class SinglePostComponent implements OnInit {
     private route: ActivatedRoute,
     private blogService: BlogService,
     private router: Router,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private userService:UserService
   ) {
     this.blog = {
       id: '',
@@ -53,6 +58,8 @@ export class SinglePostComponent implements OnInit {
     this.addCommentRequest.userId = localStorage.getItem('userId')!;
   }
   ngOnInit() {
+    this.getUserByIdRequest.name=
+
     this.blogidRequest.name = localStorage.getItem('blogId')!;
     this.blogId = localStorage.getItem('blogId');
 
@@ -62,12 +69,26 @@ export class SinglePostComponent implements OnInit {
       (res) => {
         console.log(res);
         this.blog = res;
+        console.log("res.userid"+res.userId);
+        this.getUserByIdRequest.name='25a1c76a-f6f5-4e22-8851-4aabbf33265d';
+
       },
       (err) => {}
     );
     //configure blog
 
  this.getComment();
+ this.getUserById();
+  }
+  getUserById(){
+    this.userService.getUser(this.getUserByIdRequest).subscribe(
+      (res) => {
+        console.log('ress');
+        console.log(res.userName);
+   this.blogAuthor=res.userName;
+      },
+      (err) => {}
+    );
   }
 
 

@@ -64,6 +64,7 @@ color:rgb(86, 86, 86);
 }
     .authorBtn:hover{
        color:var(--blue-color);
+       text-decoration: underline;
 
     }
 

@@ -8,6 +8,7 @@ import { BlogService } from 'src/app/services/blog.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UploadPhotoModel } from 'src/app/models/uploadPhoto.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-blog',
@@ -16,7 +17,7 @@ import { UploadPhotoModel } from 'src/app/models/uploadPhoto.model';
 })
 export class NewBlogComponent implements OnInit {
   image: any;
-  choosePic: boolean = true;
+  choosePic: boolean = false;
   categories: category[] = [];
   newCategory: testModel = {
     name: '',
@@ -39,7 +40,7 @@ export class NewBlogComponent implements OnInit {
     userId: '',
   };
   uploadImageRequest: UploadPhotoModel = {
-    id: 'eab32c34-1462-474b-3559-08dbfcceb79a',
+    id: 'c2243800-ea2b-43d0-03fd-08dbfcf35573',
     image: new FormData(),
   };
 
@@ -47,10 +48,12 @@ export class NewBlogComponent implements OnInit {
     private blogService: BlogService,
     private http: HttpClient,
     private categoryService: CategoryService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router:Router
   ) {}
 
   ngOnInit() {
+    console.log("inside the ngOnInit new-blog");
     const userIdFromLocalStorage = localStorage.getItem('userId');
     this.blogRequest.userId = userIdFromLocalStorage || '';
     this.categoryService.getCategories().subscribe((res) => {
@@ -73,20 +76,17 @@ export class NewBlogComponent implements OnInit {
     if (this.selectedFile) {
       //this.fd.append('file', this.selectedFile);
 
-
       this.fd.append('Image', this.selectedFile, this.selectedFile.name); // Match the property name on the server-side (ImageModel.Image)
-      this.fd.append('BlogId', 'eab32c34-1462-474b-3559-08dbfcceb79a'); // Replace with the actual BlogId
-  
-      this.uploadImageRequest.image = this.fd;
+      this.fd.append('BlogId', this.uploadImageRequest.id); // Replace with the actual BlogId
+
+      //  this.uploadImageRequest.image = this.fd;
       console.log(this.uploadImageRequest);
       this.http
-        .post<any>(
-          'https://localhost:7054/api/Blog/ImageUpload',
-          this.fd
-        )
+        .post<any>('https://localhost:7054/api/Blog/ImageUpload', this.fd)
         .subscribe(
           (res) => {
             console.log(res);
+            this.router.navigate(['see-blogs']);
           },
 
           (err) => {
@@ -125,7 +125,7 @@ export class NewBlogComponent implements OnInit {
     });
   }
 
-  addBlog() {
+  addBlogWithoutImage() {
     //cv
     this.choosePic = true;
 

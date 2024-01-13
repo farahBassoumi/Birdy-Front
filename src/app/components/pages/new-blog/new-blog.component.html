@@ -45,7 +45,7 @@
           </option>
         </select>
         <label for="formGroupExampleInput" class="form-label"
-          >does not exist? add one!</label
+          >does not exist? add one</label
         >
         <div class="row">
           <div class="col-6">
@@ -58,14 +58,14 @@
             />
           </div>
           <div class="col-6">
-            <button class="btn btnSave" (click)="onBlogAddedSuccess()">
+            <button class="btn btnSave" (click)="addCategory()">
               add category
             </button>
           </div>
         </div>
       </div>
     
-      <button class="btn btnSave" (click)="addBlog()">next</button>
+      <button class="btn btnSave" (click)="addBlogWithoutImage()">next</button>
     </div>
     <div class="choosePic-Container" *ngIf="choosePic == true">
 

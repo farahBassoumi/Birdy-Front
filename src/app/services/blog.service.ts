@@ -58,9 +58,9 @@ export class BlogService {
     );
   }
 
-getBlogsByUser(user:testModel): Observable<blog[]> {
-  return this.http.post<blog[]>(
-    this.baseApiUrl + '/getBlogsByUser',
+getBlogsByUser(user:testModel): Observable<any> {
+  return this.http.post<any>(
+    this.baseApiUrl + '/getBlogsByUserId',
     user
   );
 }
