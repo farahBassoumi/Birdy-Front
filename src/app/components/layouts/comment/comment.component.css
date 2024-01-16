@@ -1,0 +1,140 @@
+
+.label{
+    background-color: var(--primary-color) ;
+    border-radius: 20px;
+    width:20rem !important;
+    border-color: black;
+    border-width: 50px !important;
+    }
+    .post-body{
+        margin-top: 20px;
+        width: 4000px;
+        font-family: 'Playfair Display', serif;
+
+    color:grey;
+    
+    }
+    h1,p{
+        color:rgb(86, 86, 86);
+        font-family: 'Playfair Display', serif;
+
+    }
+    .content{
+        font-size: 150%;
+        font-family: 'Playfair Display', serif;
+        white-space: pre-line;
+        line-height: 1.6;
+    }
+    .rateQu{
+        font-size: 130%;
+        color:var(--primary-color);
+        font-weight: bold;
+
+    }
+    .author{
+        font-size: 130%;
+        font-style: italic;
+        margin-left: 70px;
+        margin-top: 40px;
+        transform: translateX(66%);
+
+    }
+    .container2{
+        display:flex;
+        margin-top: 40px;
+
+    }
+    .thumbs{
+        margin-left: 15px;
+        font-size: 24px;
+        margin-right: 15px;
+        cursor:pointer;
+    }
+
+    .thumbs-down{
+        transform: scaleX(-1);
+
+    }
+    .rating{
+        font-size: 20px;
+    }
+    .authorBtn{
+        border:0px;
+        background: transparent;
+font-style: italic;
+color:rgb(86, 86, 86);
+}
+    .authorBtn:hover{
+       color:var(--blue-color);
+       text-decoration: underline;
+
+    }
+
+.img-fluid{
+    margin-right: 10px;
+}
+
+.commentUsername{
+    font-size: large;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    margin-right: 10px;
+
+}
+.commentDate{
+margin-top: -7px;
+margin-left: 15px;
+font-style: italic;
+}
+.commentRating{
+    margin-top: -5px;
+    margin-left: 10px;
+    font-style: italic;  
+    margin-right: 10px;
+}
+
+
+
+   .commentReply{
+    margin-top: 12px;
+    margin-left: 20px;
+   }
+    
+ 
+    
+    .comments {
+      text-decoration: underline;
+      text-underline-position: under;
+      cursor: pointer;
+      font-family: 'Playfair Display', serif;
+
+    }
+    
+  
+    
+    .hit-voting:hover {
+      color: var(--blue-color)
+    }
+    
+    .hit-voting {
+      cursor: pointer;
+    }
+    .commentBtn{
+        font-size:15px ;
+        width:100px;
+        background-color: var(--blue-color);
+        margin-left: 10px;
+    }
+    .commentBtn:hover{
+        color:white;
+    }
+    .commented-section {
+        color:rgb(86, 86, 86);
+        font-family: 'Playfair Display', serif;
+
+    }
+    .liking{
+       background: transparent;
+       border: none;
+       
+    }
