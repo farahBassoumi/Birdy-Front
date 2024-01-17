@@ -1,12 +1,12 @@
 export interface comment{
-Id:string;
+id:string;
 content:string;
 likes:number;
 dislikes:number;
 
 blogId:string;
 userId:string;
-date:string;
+creationDate:string;
 author: {
   
     id: string;

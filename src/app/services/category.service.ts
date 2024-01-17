@@ -18,6 +18,12 @@ export class CategoryService {
       this.baseApiUrl + '/getCategories'
     );
   }
+  getCategoryById(cat: testModel): Observable<any> {
+    return this.http.post<any>(
+      this.baseApiUrl + '/getCategoryById',
+      cat
+    );
+  }
   getCategoryByName(cat: testModel): Observable<category> {
     return this.http.post<category>(
       this.baseApiUrl + '/getCategoryByName',

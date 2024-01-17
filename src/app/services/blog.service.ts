@@ -7,6 +7,7 @@ import { category } from '../models/category.model';
 import { User } from '../models/user.model';
 import { addblog } from '../models/addBlog.model';
 import { testModel } from '../models/testModel.model';
+import { likingRequest } from '../models/likingRequest.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,13 @@ export class BlogService {
   getBlogsByCategory(cat: category): Observable<blog[]> {
     return this.http.post<blog[]>(
       this.baseApiUrl + '/getBlogsByCategory',
+      cat
+    );
+  }
+
+  getBlogsByCategoryName(cat: testModel): Observable<any> {
+    return this.http.post<any>(
+      this.baseApiUrl + '/getBlogsByCategoryName',
       cat
     );
   }
@@ -70,6 +78,28 @@ addBlog(blog:addblog):Observable<any>{
     blog
   );
 }
+
+dislikeBlog(likingrequest:likingRequest):Observable<any>{
+  return this.http.put<any>(
+    this.baseApiUrl + '/dislikeBlog',
+    likingrequest
+  );
+}
+
+likeBlog(likingrequest:likingRequest):Observable<any>{
+  return this.http.put<any>(
+    this.baseApiUrl + '/likeBlog',
+    likingrequest
+  );
+}
+
+getLikes(likingrequest:likingRequest):Observable<any>{
+  return this.http.post<any>(
+    this.baseApiUrl + '/getBlogLikes',
+    likingrequest
+  );
+}
+
 /*
 uploadImage(image:any, id:string):Observable<any>{
   return this.http.post<any>(

@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogContentComponent } from './components/dialog-content/dialog-content.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommentComponent } from './components/layouts/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ModifyProfileComponent,
     UserBlogsComponent,
     DialogContentComponent,
+    CommentComponent,
     
   ],
   imports: [

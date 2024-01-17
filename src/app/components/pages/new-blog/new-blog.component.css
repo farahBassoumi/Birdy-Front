@@ -34,3 +34,7 @@ padding-bottom: 100px;
 .choosePic-Container input{
     margin-bottom: 170px;
 }
+.blog-content{
+    white-space: pre-line;
+    height:400px;
+}

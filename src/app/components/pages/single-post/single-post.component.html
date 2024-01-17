@@ -1,22 +1,25 @@
 <div class="container post-body">
   <div class="card">
-   
-    <img  class="card-img-top img-fluid" src="{{blog.image}}" alt="posy-image" >
+    <img
+      class="card-img-top img-fluid"
+      src="{{ blog.image }}"
+      alt="posy-image"
+    />
 
     <div class="card-body row">
       <div class="col-3">
         <small class="bg-light text-center label">
-          {{ blog.category }}
+          {{ blog.categorieId }}
         </small>
       </div>
-      <h1 class="mt-5 ml-5 mb-3 ">{{blog.title}}</h1>
+      <h1 class="mt-5 ml-5 mb-3">{{ blog.title }}</h1>
 
       <p class="content">{{ blog.content }}</p>
 
       <p class="author">
         Written By
         <button class="authorBtn Btn" (click)="navigateBlogAuthor()">
-          {{blogAuthor}}
+          {{ blogAuthor }}
         </button>
       </p>
 
@@ -35,10 +38,10 @@
             class="fa-solid fa-thumbs-up"
           ></i>
         </div>
-        <p class="rating">{{ thumbsUpRating }}</p>
+        <p class="rating">{{ blog.likes }}</p>
 
         <p class="thumbs"></p>
-        <p class="rating">{{ thumbsDownRating }}</p>
+        <p class="rating">{{ blog.dislikes }}</p>
 
         <div class="thumbs-down thumbs">
           <i
@@ -58,7 +61,6 @@
     <div class="container mt-5 mb-5">
       <div class="d-flex justify-content-center row">
         <div class="d-flex flex-column col-md-8">
-          <div class=" ">
             <div class="d-flex flex-row add-comment-section mb-4">
               <img
                 class="img-fluid img-responsive rounded-circle"
@@ -67,44 +69,29 @@
               />
               <input
                 type="text"
-                class="form-control"
+                class="form-control input-comment"
                 placeholder="Add comment .."
                 [(ngModel)]="addCommentRequest.content"
-              /><button class="btn commentBtn" type="button" (click)="addComment()">comment</button>
+              /><button
+                class="btn commentBtn"
+                type="button"
+                (click)="addComment()"
+              >
+                comment
+              </button>
             </div>
+<div class="scrollable">
 
-            <div
-              class="commented-section mt-2"
-              *ngFor="let comment of comments"
-            >
-              <div class="d-flex flex-row align-items-center commented-user">
-                <h5 class="mr-2 commentUsername">{{ comment.author.userName }}</h5>
-                <span class="commentDate">added: {{ comment.date }}</span>
-              </div>
-              <div class="comment-text-sm">
-                <span>{{ comment.content }}</span>
-              </div>
-              <div class="reply-section">
-                <div class="d-flex flex-row align-items-center voting-icons">
-                  <button class="btn liking" (click)="likeComment(comment.Id)">
-                    <i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+  <div
+  class="commented-section mt-2"
+  *ngFor="let comment of comments"
+>
+<app-comment [comment]="comment"></app-comment>
 
+</div>
 
-                  </button>
-                  
-                  <span class="commentRating">{{ comment.likes }}</span>
-
-
-                  <button class="btn liking" (click)="dislikeComment(comment.Id)">
-                  
-                    <i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i
-                      >
-                  </button>
-                 <span class="commentRating">{{ comment.dislikes }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
+           
         </div>
       </div>
     </div>

@@ -34,31 +34,16 @@ export class SingleCategoryComponent implements OnInit {
       };
   }
 
-  getBlogs(): void {//cv
-  
-      this.categoryService.getCategoryByName(this.chosenCategory).subscribe(
-        (res) => {
-        //  this.blogcategory.id = res.id;
-        this.blogcategory.id = '5';
 
-          this.blogcategory.name = this.chosenCategory.name;
-          console.log( this.blogcategory.id +'..'+this.blogcategory.name );
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-      
-      this.blogService
-        .getBlogsByCategory(this.blogcategory)
-        .subscribe((res) => {
-          this.blogs = res;
-          console.log(res);
-        }),
-        (error: any) => {
-          console.log(error);
-        };
 
-    }
+  getBlogsByCategory() {
+console.log(this.chosenCategory.name);
+    this.blogService.getBlogsByCategoryName(this.chosenCategory).subscribe((res) => {
+      this.blogs = res;
+      console.log(res);
+    }),
+      (error: any) => {
+        console.log(error);
+      };
   }
-
+}

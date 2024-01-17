@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { blog } from 'src/app/models/blog.model';
 import { testModel } from 'src/app/models/testModel.model';
+import { CategoryService } from 'src/app/services/category.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,19 +14,19 @@ export class PostCardComponent implements OnInit {
   userIdRequest: testModel = {
     name: '',
   };
-  authorName: string = '';
-  ngOnInit() {
-    this.userIdRequest.name = this.blog.userId;
-    this.getblogAuthor();
+  getcategoryByIdRequest:testModel={
+    name:''
   }
+  authorName: string = '';
+ 
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router, private userService: UserService, private categoryService:CategoryService) {
     // Default value just to satisfy TypeScript
     this.blog = {
       id: '',
       title: '',
       content: '',
-      category: '',
+      categorieId: '',
       likes: 0,
       dislikes: 0,
       userId: '',
@@ -35,9 +36,18 @@ export class PostCardComponent implements OnInit {
   }
   @Input() blog: blog;
 
-  redirectToSinglePost() {
+
+
+  ngOnInit() {
+    this.userIdRequest.name = this.blog.userId;
+    this.getblogAuthor();
+    console.log(this.blog);
+    this.getcategoryByIdRequest.name=this.blog.categorieId;
+   // this.getCategoryById();
+
+  }
+    redirectToSinglePost() {
     localStorage.setItem('blogId', this.blog.id);
-    console.log('logid' + this.blog.id);
     this.router.navigate(['/post']);
   }
 
@@ -48,7 +58,6 @@ export class PostCardComponent implements OnInit {
       (next) => {
         console.log(next);
         this.authorName = next.userName;
-        console.log(this.authorName);
       },
       (err) => {
         console.log(err);
@@ -61,4 +70,19 @@ export class PostCardComponent implements OnInit {
     const maxlength = 40;
     return title.length > maxlength ? title.substring(0, maxlength) : title;
   }
+
+/*
+  getCategoryById():string{
+this.categoryService.getCategoryById(this.getcategoryByIdRequest).subscribe(
+  (next) => {
+    console.log(next);
+    return(next.name);
+      },
+  (err) => {
+    console.log(err);
+    return ("");
+  }
+);
+return "";
+  }*/
 }

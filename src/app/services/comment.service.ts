@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { addCommentModel } from '../models/addComment.model';
 import { testModel } from '../models/testModel.model';
+import { likingRequest } from '../models/likingRequest.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,32 @@ CreateComment(comment:addCommentModel): Observable<any> {
   );
 }
 
+
+dislikeComment(likingrequest:likingRequest):Observable<any>{
+  return this.http.put<any>(
+    this.baseApiUrl + '/dislikeComment',
+    likingrequest
+  );
+}
+
+likeComment(likingrequest:likingRequest):Observable<any>{
+  return this.http.put<any>(
+    this.baseApiUrl + '/likeComment',
+    likingrequest
+  );
+}
+
+getCommentLikes(likingrequest:likingRequest):Observable<any>{
+  return this.http.post<any>(
+    this.baseApiUrl + '/getCommentLikes',
+    likingrequest
+  );
+}
+getCommentById(id:testModel):Observable<any>{
+  return this.http.post<any>(
+    this.baseApiUrl + '/getCommentById',
+    id
+  );
+}
 
 }

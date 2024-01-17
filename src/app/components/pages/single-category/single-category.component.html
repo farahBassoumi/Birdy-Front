@@ -1,6 +1,11 @@
 <div class="bg-theme">
   <div class="container">
-    <h1 class="text-white"style="margin-left: 20px;">choose a category</h1>
+    <h1
+      class="text-white"
+      style="margin-left: 20px; font-family: 'Playfair Display', serif"
+    >
+      choose a category
+    </h1>
     <p class="text-white">
       Embark on a journey through the fascinating realms of the mind! Pick a
       category that resonates with your curiosity, whether it's the intricate
@@ -9,23 +14,18 @@
       captivate your intellect. Your adventure begins with the choice of a
       category – let your curiosity guide you!
     </p>
-<br>
+    <br />
     <select
-    [(ngModel)]="chosenCategory.name"
+      [(ngModel)]="chosenCategory.name"
+      (ngModelChange)="getBlogsByCategory()"
       class="form-select form-select-lg mb-3"
       aria-label="Large select example"
     >
       <option selected>...</option>
-      <option
-        *ngFor="let category of categories"
-        [value]="category.name"
-      >
+      <option *ngFor="let category of categories" [value]="category.name">
         {{ category.name }}
       </option>
     </select>
-    <button (click)="getBlogs()" > 
-get blogs
-    </button>
   </div>
 </div>
 <div class="container mt-10 mb-5">

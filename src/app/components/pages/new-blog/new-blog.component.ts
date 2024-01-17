@@ -9,6 +9,7 @@ import { CategoryService } from 'src/app/services/category.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UploadPhotoModel } from 'src/app/models/uploadPhoto.model';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-new-blog',

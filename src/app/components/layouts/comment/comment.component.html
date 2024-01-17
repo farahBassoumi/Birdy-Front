@@ -1,26 +1,32 @@
 <div class="d-flex flex-row align-items-center commented-user">
-    <h5 class="mr-2 commentUsername">
-      {{ comment.author.userName }}
-    </h5>
-    <span class="commentDate">added: {{ comment.date }}</span>
-  </div>
-  <div class="comment-text-sm">
-    <span>{{ comment.content }}</span>
-  </div>
-  <div class="reply-section">
-    <div class="d-flex flex-row align-items-center voting-icons">
-      <button class="btn liking" (click)="likeComment()">
-        <i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
-      </button>
+  <h5 class="mr-2 commentUsername">
+    {{ comment.author.userName }}
+  </h5>
+  <span class="commentDate">added on : {{ getdate() }}</span>
+</div>
+<div class="comment-text-sm">
+  <span>{{ comment.content }}</span>
+</div>
+<div class="reply-section">
+  <div class="d-flex flex-row align-items-center voting-icons">
+    <button *ngIf="!thumbsup" class="btn liking" (click)="thumbsUp()">
+      <i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+    </button>
 
-      <span class="commentRating">{{ comment.likes }}</span>
+    <button *ngIf="thumbsup" class="btn liking liked" (click)="thumbsUp()">
+      <i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+    </button>
 
-      <button
-        class="btn liking"
-        (click)="dislikeComment()"
-      >
-        <i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
-      </button>
-      <span class="commentRating">{{ comment.dislikes }}</span>
-    </div>
+    <span class="commentRating">{{ comment.likes }}</span>
+
+    <button *ngIf="!thumbsdown" class="btn liking" (click)="thumbsDown()">
+      <i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
+    </button>
+
+    <button *ngIf="thumbsdown" class="btn liking liked" (click)="thumbsDown()">
+      <i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
+    </button>
+
+    <span class="commentRating">{{ comment.dislikes }}</span>
   </div>
+</div>

@@ -1,3 +1,8 @@
+*{
+    width:fit-content;
+}
+
+
 .label{
     background-color: var(--primary-color) ;
     border-radius: 20px;
@@ -7,10 +12,10 @@
     }
     .post-body{
         margin-top: 20px;
-        width: 4000px;
         font-family: 'Playfair Display', serif;
 
     color:grey;
+    margin-bottom: 70px;
     
     }
     h1,p{
@@ -21,21 +26,20 @@
     .content{
         font-size: 150%;
         font-family: 'Playfair Display', serif;
-
+        white-space: pre-line;
+        line-height: 1.6;
     }
     .rateQu{
         font-size: 130%;
         color:var(--primary-color);
-        font-weight: bold;
-
+       padding-top: 5px;
     }
     .author{
         font-size: 130%;
-        font-style: italic;
-        margin-left: 70px;
+        margin-left: 70%;
         margin-top: 40px;
-        transform: translateX(66%);
-
+position: relative;
+font-weight: bold;
     }
     .container2{
         display:flex;
@@ -59,7 +63,6 @@
     .authorBtn{
         border:0px;
         background: transparent;
-font-style: italic;
 color:rgb(86, 86, 86);
 }
     .authorBtn:hover{
@@ -68,12 +71,18 @@ color:rgb(86, 86, 86);
 
     }
 
+    .img-fluid{
+        margin-right: 10px;
+      
+    }
 
-
-.img-fluid{
-    margin-right: 10px;
+    .rounded-circle{
+        height:40px;
+        width: 40px;
+    }
+    
+.input-comment{
 }
-
 .commentUsername{
     font-size: large;
     font-family: 'Playfair Display', serif;
@@ -81,6 +90,7 @@ color:rgb(86, 86, 86);
     margin-right: 10px;
 
 }
+
 .commentDate{
 margin-top: -7px;
 margin-left: 15px;
@@ -131,10 +141,34 @@ font-style: italic;
     .commented-section {
         color:rgb(86, 86, 86);
         font-family: 'Playfair Display', serif;
-
+      
     }
     .liking{
        background: transparent;
        border: none;
        
     }
+    .scrollable{
+        max-height: 300px; /* Set a maximum height for the container */
+        overflow-y: scroll;
+        width: 100%;
+
+    }
+    ::-webkit-scrollbar {
+        width: 20px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #d6dee1;
+        border-radius: 20px;
+        border: 6px solid transparent;
+        background-clip: content-box;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #a8bbbf;
+      }

@@ -138,3 +138,11 @@ font-style: italic;
        border: none;
        
     }
+    .liked{
+        color: var(--blue-color);
+
+
+    }
+    .reply-section{
+        cursor:default;
+    }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { addCommentModel } from 'src/app/models/addComment.model';
 import { blog } from 'src/app/models/blog.model';
 import { comment } from 'src/app/models/comment.model';
+import { likingRequest } from 'src/app/models/likingRequest.model';
 import { testModel } from 'src/app/models/testModel.model';
 import { BlogService } from 'src/app/services/blog.service';
 import { CommentService } from 'src/app/services/comment.service';
@@ -17,8 +18,10 @@ export class SinglePostComponent implements OnInit {
   blogAuthor: string="";
   thumbsup: boolean = false;
   thumbsdown: boolean = false;
-  thumbsUpRating: number = 0;
-  thumbsDownRating: number = 0;
+  likingRequest:likingRequest={
+    EntityId:'',
+    UserId:''
+  }
   addCommentRequest: addCommentModel = {
     content: '',
     blogId: '',
@@ -44,7 +47,7 @@ export class SinglePostComponent implements OnInit {
       id: '',
       title: '',
       content: '',
-      category: '',
+      categorieId: '',
       likes: 0,
       dislikes: 0,
       userId: '',
@@ -58,33 +61,50 @@ export class SinglePostComponent implements OnInit {
     this.addCommentRequest.userId = localStorage.getItem('userId')!;
   }
   ngOnInit() {
-    this.getUserByIdRequest.name=
 
     this.blogidRequest.name = localStorage.getItem('blogId')!;
     this.blogId = localStorage.getItem('blogId');
+    this.getBlogById();
+this.likingRequest.UserId=localStorage.getItem('userId')!;
+this.likingRequest.EntityId=this.blogId;
 
-    console.log(localStorage.getItem('blogId'));
+   
+this.getBlogLikes();
+ this.getComments();
 
-    this.blogService.getBlogsById(this.blogidRequest).subscribe(
-      (res) => {
-        console.log(res);
-        this.blog = res;
-        console.log("res.userid"+res.userId);
-        this.getUserByIdRequest.name='25a1c76a-f6f5-4e22-8851-4aabbf33265d';
 
-      },
-      (err) => {}
-    );
-    //configure blog
-
- this.getComment();
- this.getUserById();
   }
+
+
+getBlogById(){
+
+  this.blogService.getBlogsById(this.blogidRequest).subscribe(
+    (res) => {
+      this.blog = res;
+      this.getUserByIdRequest.name=res.userId;
+      this.getUserById();
+    },
+    (err) => {}
+  );
+
+
+}
+
+
+getBlogLikes(){
+this.blogService.getLikes(this.likingRequest).subscribe(
+  (res) => {
+    this.thumbsup = res.likes;
+    this.thumbsdown = res.dislikes;
+  }
+);}
+
+
   getUserById(){
+    //console.log(this.getUserByIdRequest.name);
     this.userService.getUser(this.getUserByIdRequest).subscribe(
       (res) => {
-        console.log('ress');
-        console.log(res.userName);
+       
    this.blogAuthor=res.userName;
       },
       (err) => {}
@@ -93,16 +113,16 @@ export class SinglePostComponent implements OnInit {
 
 
 
-  getComment(){
+  getComments(){
 
     this.commentService.getCommentsByBlogId(this.blogidRequest).subscribe(
       (res) => {
-        console.log('ress');
-        console.log(res);
+       
         this.comments = res;
         this.comments.forEach((item) => {
+          
           // Do something with each item
-          console.log(item.author.userName);
+          console.log(item.id);
         });
       },
       (err) => {}
@@ -111,40 +131,78 @@ export class SinglePostComponent implements OnInit {
   thumbsUp() {
     if (!this.thumbsup) {
       console.log('thumbs up');
-      this.blog.likes++;
-      this.thumbsUpRating++;
+      this.likeBlog();
+
       this.thumbsup = true;
       if (this.thumbsdown) {
         this.thumbsdown = false;
-        this.thumbsDownRating--;
-        this.blog.dislikes--;
+      this.dislikeBlog();
       }
     } else {
-      this.blog.likes--;
-      this.thumbsUpRating--;
+      this.likeBlog();
+
       this.thumbsup = false;
     }
-    this.updateBlog();
+    //this.likeBlog();
   }
 
   thumbsDown() {
     if (!this.thumbsdown) {
-      this.blog.dislikes++;
-      this.thumbsDownRating++;
+      this.dislikeBlog();
+ 
+
+
+
       this.thumbsdown = true;
 
       if (this.thumbsup) {
         this.thumbsup = false;
-        this.thumbsUpRating--;
-        this.blog.likes--;
+     this.likeBlog();
       }
     } else {
-      this.blog.dislikes--;
-      this.thumbsDownRating--;
+  
       this.thumbsdown = false;
+      this.dislikeBlog();
     }
-    this.updateBlog();
+  
   }
+
+
+dislikeBlog(){
+  this.blogService.dislikeBlog(this.likingRequest).subscribe(
+    (res) => {
+      console.log(res);
+      this.getBlogById();
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
+}
+
+
+likeBlog(){
+
+
+  this.blogService.likeBlog(this.likingRequest).subscribe(
+    (res) => {
+      console.log(res);
+      this.getBlogById();
+
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
+}
+
+
+
+
+
+
+
+
 
   updateBlog() {
     this.blogService.updateBlog(this.blog).subscribe(
@@ -163,24 +221,25 @@ export class SinglePostComponent implements OnInit {
   }
 
   addComment() {
-    this.commentService.CreateComment(this.addCommentRequest).subscribe(
-      (res) => {
-        console.log(res);
-        this.getComment();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    if(this.addCommentRequest.content!=""){
+
+      this.commentService.CreateComment(this.addCommentRequest).subscribe(
+        (res) => {
+          console.log(res);
+          this.addCommentRequest.content="";
+          this.getComments();
+          
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+
+
+    }
+  
   }
 
 
-  likeComment(id:string){
 
-  }
-
-
-  dislikeComment(id:string){
-    
-  }
 }
