@@ -10,7 +10,8 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './post-card.component.html',
   styleUrls: ['./post-card.component.css'],
 })
-export class PostCardComponent implements OnInit {
+export class PostCardComponent  {
+  
   userIdRequest: testModel = {
     name: '',
   };

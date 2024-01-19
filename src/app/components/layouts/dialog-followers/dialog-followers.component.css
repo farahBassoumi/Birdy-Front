@@ -1,0 +1,31 @@
+*{
+    width: 50vw;
+	height: 40vw;
+    max-height: 40vw;
+}
+
+.dialogFrame {
+    font-family: 'Playfair Display', serif;
+
+}
+.form-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+    width: 100%;
+	background-color: rgb(255, 255, 255);
+}
+.insideFrame {
+	padding: 1vw;
+    width: 50vw;
+	height: 40vw;
+}
+.justForLayout{
+    width:0px;
+    height: 0px;
+    padding-top:1.5px;
+}
+.element{
+    height:5px !important;
+}

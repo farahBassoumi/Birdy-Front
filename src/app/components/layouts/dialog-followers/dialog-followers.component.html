@@ -1,0 +1,35 @@
+<div class="dialogFrame">
+<div class="insideFrame">
+
+
+
+
+ 
+
+
+<div  *ngIf="showFollowers">
+    <div   *ngFor="let element of followers">
+
+
+
+        <tr class="element">
+            <th scope="row">1</th>
+            <td>
+    
+    
+                {{ element.followerUsername }}
+
+                
+            </td>
+            <td>
+                <button>unfollow</button>
+            </td>
+         
+          </tr>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
