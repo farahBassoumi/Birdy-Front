@@ -79,6 +79,7 @@ color:rgb(86, 86, 86);
     font-family: 'Playfair Display', serif;
     font-weight: bold;
     margin-right: 10px;
+    color:rgb(85, 85, 85);
 
 }
 .commentDate{
@@ -136,10 +137,11 @@ font-style: italic;
     .liking{
        background: transparent;
        border: none;
+       color:gray;
        
     }
     .liked{
-        color: var(--blue-color);
+        color: var(--olive-green);
 
 
     }

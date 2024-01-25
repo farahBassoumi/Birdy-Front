@@ -6,16 +6,16 @@
       <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
         <ul class="navbar-nav text-center">          
           <li class="nav-item text-center">
-            <a class="nav-link " (click)="setActiveCategory('Home')"  [class.active]="activeCategory === 'Home'" aria-current="page" href="#">Home</a>
+            <a class="nav-link home-link " (click)="setActiveCategory('Home')"  [class.active]="activeCategory === 'Home'" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="setActiveCategory('Category')"[class.active]="activeCategory === 'Category'" routerLink="/category">Category</a>
+            <a class="nav-link category-link" (click)="setActiveCategory('Category')"[class.active]="activeCategory === 'Category'" routerLink="/category">Category</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/post">post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  (click)="setActiveCategory('About')" [class.active]="activeCategory === 'About'" routerLink="/about">About</a>
+            <a class="nav-link about-link"  (click)="setActiveCategory('About')" [class.active]="activeCategory === 'About'" routerLink="/about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/k">new blog</a>

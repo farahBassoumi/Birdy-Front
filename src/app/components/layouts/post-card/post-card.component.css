@@ -14,8 +14,7 @@ small {
   max-width: 400px;
   height: 500px;
   border: none;
-  box-shadow: 0px 0px 23px -4px var(--midnight-blue);
-
+  box-shadow: 0px 0px 33px -8px rgba(24, 52, 76, 0.5); 
 }
 
 .card-body {

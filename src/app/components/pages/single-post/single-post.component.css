@@ -2,14 +2,6 @@
 }
 
 
-.label {
-    background-color: rgb(227, 243, 253);
-    border-radius: 5px;
-    min-width: 5vw !important;
-    padding: 2px;
-    border: none;
-    text-transform: uppercase;
-}
 
 .post-body {
     margin-top: 20px;
@@ -41,8 +33,7 @@ p {
 
 .rateQu {
     font-size: 130%;
-    color: var(--primary-color);
-    padding-top: 5px;
+    padding-top:5px
 }
 
 
@@ -51,12 +42,13 @@ p {
     margin-left: 70%;
     position: absolute;
     font-weight: bold;
+    margin-top: 1vw;
 
 }
 
 .container2 {
     display: flex;
-    margin-top: 40px;
+    margin-top: 5vw;
 
 }
 
@@ -66,11 +58,11 @@ p {
     margin-right: 15px;
     cursor: pointer;
     margin-top:-0.3vw;
+
 }
 
 .thumbs-down {
     transform: scaleX(-1);
-
 }
 
 .rating {
@@ -83,10 +75,12 @@ p {
     border: 0px;
     background: transparent;
     color: rgb(86, 86, 86);
+    transition: 9s ease; 
+    /**/
 }
 
 .authorBtn:hover {
-    color: var(--blue-color);
+    color: var(--steel-blue);
     text-decoration: underline;
 
 }
@@ -103,10 +97,11 @@ p {
 
 
 .commentUsername {
-    font-size: large;
+    font-size: medium;
     font-family: 'Playfair Display', serif;
     font-weight: bold;
     margin-right: 10px;
+    color:var(--dark);
 
 }
 
@@ -143,7 +138,7 @@ p {
 
 
 .hit-voting:hover {
-    color: var(--blue-color)
+    color: var(--olive-green)
 }
 
 .hit-voting {
@@ -153,18 +148,21 @@ p {
 /**/
 
 
+
+
 .addCommentSc {
     display: flex;
     align-items: center;
   }
   
   .input-comment {
-    height: 2vw;
+    height: 3vw;
    width: 40vw;
     padding: 0 1rem;
-    color: #fff;
+    color:var(--olive-green);
     font-size: 15px;
-    border: 1px solid #add4fd;
+    border: 1px solid var(--olive-green);
+    
     border-radius: 6px 0 0 6px;
     background-color: transparent;
   }
@@ -172,19 +170,19 @@ p {
 
   
   .button--submit {
-    height: 2vw;
-width:8vw;
+    height: 3vw;
+    width:8vw;
     border: none;
+    color:white;
     border-radius: 0 6px 6px 0;
-    background-color: #add4fd;
-    color: #fff;
+    background-color:var(--olive-green);
     font-size: 15px;
     cursor: pointer;
     transition: background-color .3s ease-in-out;
   }
   
   .button--submit:hover {
-    background-color: #93bae4;
+    background-color: #596335;
   }
   
 
@@ -243,6 +241,14 @@ width:8vw;
 */
 
 
+.label {
+    background-color: rgb(227, 243, 253);
+    border-radius: 5px;
+    min-width: 5vw !important;
+    padding: 2px;
+    border: none;
+    text-transform: uppercase;
+}
 
 
 
@@ -260,6 +266,8 @@ width:8vw;
   .tooltipp .tooltiptext {
     font-size: smaller;
     visibility: hidden;
+    text-transform: none;
+    font-style: italic;
     width: 200px;
     background-color: transparent;
     color: #282828;
@@ -267,7 +275,7 @@ width:8vw;
     border-radius: 5px;
     position: absolute;
     z-index: 1;
-    bottom:115%;
+    bottom:105%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;

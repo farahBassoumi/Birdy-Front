@@ -26,7 +26,8 @@
   --light-steel: #80ABC4;
   --steel-blue: #4C7F9F;
   --olive-green: #74813F;
-  --grainsboro: #eeebe9;
+  --grainsboro: #efeadd;
+  --dark-beige:rgb(224, 215, 195);
 }
 
 .bodyclass {

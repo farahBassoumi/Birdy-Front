@@ -25,7 +25,10 @@
     align-items: center;
   }
 
-  .navbar-nav a.active {
+  .home-link.active {
     border-bottom: 4px solid var(--midnight-blue);
+}
+.category-link.active {
+  border-bottom: 4px solid var(--light-steel-blue);
 }
   

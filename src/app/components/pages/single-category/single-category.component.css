@@ -3,7 +3,7 @@
     padding-left: 3vw;
     padding-right: 3vw;
 
-    padding-bottom: 3vw;
+    padding-bottom: 2vw;
     padding-top: 2rem;
 
 
@@ -26,4 +26,7 @@ h1 {
     width: 70%;
     height: 45px;
     border-radius: 10px;
+}
+.upperPart{
+    margin-bottom:3vw;
 }

@@ -1,20 +1,19 @@
 body{
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 1vw;
+
     font-family: 'Playfair Display', serif;
 
 }
 *{
-  background-color:rgb(225, 245, 255);
-  border-radius: 50px;
+  background-color:beige;
+  border-radius: 1vw;
 }
 
 .container-split {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    margin-top: -3vw;
+    padding:2vw;
   }
 
   .container-split .left-container,
@@ -22,17 +21,16 @@ body{
     flex-basis: 48%; /* Adjust the width of each container as needed */
   }
   .booksImg{
-    size:10rem;
-    width:800px;
+    size:10vw;
+    width:50vw;
   }
   .content{
-    margin-top: 30px;
-    font-size:larger;
+    font-size:medium;
     margin-left: 50px;
     margin-right: 50px;
   }
   .right-container{
-    background-color:rgb(225, 245, 255);
+    background-color:beige;
     border-radius: 40px;
 
   }

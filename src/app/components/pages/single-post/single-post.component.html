@@ -18,10 +18,6 @@
 
 
 
-      <small style="margin-left: 3vw" *ngIf="isTooltipVisible"
-        >click to view more !</small
-      >
-      <small style="color: white" *ngIf="!isTooltipVisible">.</small>
       <div></div>
       <!--it's needed-->
       <button class="label category-botton tooltipp" (click)="navigateToCategory()">
@@ -107,7 +103,7 @@
               placeholder="Add comment .."
               [(ngModel)]="addCommentRequest.content"
             />
-            <input class="button--submit" value="comment" type="submit">
+            <input (click)="addComment()" class="button--submit" value="comment" type="submit">
 
             </div>
         
