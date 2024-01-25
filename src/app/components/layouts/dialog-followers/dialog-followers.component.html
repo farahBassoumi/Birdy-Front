@@ -1,35 +1,40 @@
-<div class="dialogFrame">
-<div class="insideFrame">
-
-
-
-
- 
-
-
-<div  *ngIf="showFollowers">
-    <div   *ngFor="let element of followers">
-
-
-
-        <tr class="element">
-            <th scope="row">1</th>
-            <td>
-    
-    
-                {{ element.followerUsername }}
-
-                
-            </td>
-            <td>
-                <button>unfollow</button>
-            </td>
-         
-          </tr>
-  </div>
+<body>
   
-</div>
+  <div class="form-box">
+    <div class="wrapper scrollable">
+      <div *ngIf="showFollowers">
+        <div *ngFor="let element of followers" class="element">
+          <div class="container">
+            <div class="follower">
+             
+              {{ element.followerUsername }}
+            </div>
+            <div class="unfollowBtn">
+              <button (click)="Unfollow(element.followerId)">
+               
+                Unfollow</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-</div>
 
-</div>
+
+      <div *ngIf="!showFollowers">
+        <div *ngFor="let element of followings" class="element">
+          <div class="container">
+            <div class="follower">
+             
+              {{ element.followingUsername }}
+            </div>
+            <div class="unfollowBtn">
+              <button (click)="Remove(element.followingId)">
+               
+                Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

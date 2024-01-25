@@ -38,21 +38,22 @@ export class UserService {
 
 login(loginRequest:loginModel):Observable<any>{
   return this.http.post<any>(
-    this.baseApiUrl + '/Login',
+    this.baseApiUrl + '/api/Login',
     loginRequest
   );
 
-
-
-
-
-
-
-
   
+ 
 }
 
 
+
+getUserCounts(request:testModel):Observable<any>{
+  return this.http.post<any>(
+    this.baseApiUrl + '/api/User/getUserCounts',
+    request
+  );
+}
 signUp(signUpRequest:SignUpModel):Observable<any>{
   return this.http.post<any>(
     this.baseApiUrl + '/Register',

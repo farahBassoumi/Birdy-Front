@@ -16,7 +16,9 @@ const routes: Routes = [
 
   {path:'',component: HomeComponent},
   {path:'Home',component: HomeComponent},
+  {path:'category/:data?',component: SingleCategoryComponent},
   {path:'category',component: SingleCategoryComponent},
+
   {path:'post',component: SinglePostComponent},
   {path:'about',component: AboutUsComponent},
   {path:'terms-conditions',component: TermsConditionsComponent},

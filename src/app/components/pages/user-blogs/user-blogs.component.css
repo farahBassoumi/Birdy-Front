@@ -1,0 +1,8 @@
+.authorBtn{
+    border:0px;
+    background: transparent;
+color:rgb(0, 0, 0);
+}
+.authorBtn:hover{
+    text-decoration: underline;
+}

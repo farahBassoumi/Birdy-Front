@@ -1,13 +1,25 @@
 
 <section class="container mt-5">
     <div class="col-md-12 text-center">
-      <h2>{{username}} blogs</h2>
+      
+      
+      
+      
+      
+      
+      <h2 class="author"  style="    font-family: 'Playfair Display', serif;
+      ">
+        Blogs Written By
+        <button class="authorBtn Btn" (click)="navigateBlogAuthor()">
+          {{ username }}
+        </button>
+      </h2>
       <br />
   
     </div>
     <div class="row">
       <div class="col-lg-4" *ngFor="let blog of blogs">
-        <app-post-card [blog]="blog"></app-post-card>
+     <app-post-card [blog]="blog"></app-post-card>
       </div>
     </div>
   </section>

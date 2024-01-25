@@ -26,7 +26,8 @@ import { DialogContentComponent } from './components/dialog-content/dialog-conte
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommentComponent } from './components/layouts/comment/comment.component';
-
+import { DialogFollowersComponent } from './components/layouts/dialog-followers/dialog-followers.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { CommentComponent } from './components/layouts/comment/comment.component
     UserBlogsComponent,
     DialogContentComponent,
     CommentComponent,
+    DialogFollowersComponent,
     
   ],
   imports: [
@@ -58,7 +60,9 @@ import { CommentComponent } from './components/layouts/comment/comment.component
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    SweetAlert2Module,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

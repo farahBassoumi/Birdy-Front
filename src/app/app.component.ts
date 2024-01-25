@@ -10,10 +10,11 @@ export class AppComponent {
    *
    */
   constructor(private Httpclient:HttpClient) {
-    console.log('before');
+   /* console.log('before');
     this.Httpclient.get('https://www.youtube.com/watch?v=oTObLWih_EA');
     console.log('before');
-
+*/
   }
   title = 'test2Project';
+
 }

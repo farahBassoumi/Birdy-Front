@@ -35,20 +35,17 @@ export class DialogContentComponent {
   }
 
   login() {
-    this.userService.login(this.loginRequest).subscribe((res) => {
-      console.log(res);
-    });
+    console.log(this.loginRequest.password);
+    console.log(this.loginRequest.username);
+
+    // this.userService.login(this.loginRequest).subscribe((res) => {
+    //   console.log(res);
+    // });
 
     this.userService.login(this.loginRequest).subscribe({
       next: (response: any) => {
-        if (response.statusCode == 404) {
-          //user not found
-        } else if (response.statusCode == 400) {
-          //wrong password
-        } else if (response.statusCode == 401) {
-          //user desactivated
-       //   this.router.navigate(['desactivated']);
-        } else {
+        console.log(response);
+
           //login success!
           const token = response.token;
           localStorage.setItem('token', token);
@@ -61,7 +58,7 @@ export class DialogContentComponent {
           //this.router.navigate(['Home']);
 
 
-        }
+        
       },
       error: (err: any) => {},
     });

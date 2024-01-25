@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 import { blog } from 'src/app/models/blog.model';
 import { testModel } from 'src/app/models/testModel.model';
@@ -21,7 +21,8 @@ export class UserBlogsComponent implements OnInit {
   user: any;
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private router:Router
   ) {}
   ngOnInit() {
     this.userId = localStorage.getItem('userId');
@@ -41,5 +42,8 @@ export class UserBlogsComponent implements OnInit {
     );
   }
 
-  getBlogsByUser() {}
+  navigateBlogAuthor() {
+    localStorage.setItem('modify', 'false');
+    this.router.navigate(['profile']);
+  }
 }

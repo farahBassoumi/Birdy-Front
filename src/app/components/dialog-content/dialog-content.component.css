@@ -6,15 +6,16 @@
 }
 body {
     font-family: 'Playfair Display', serif;
-	background: var(--secondary-color);
+	background: blue;
 
 }
 .form-box {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 57vh;
-    width: 90vh;
+	height: 100%;
+    width: 100%;
+	background-color: rgb(255, 255, 255);
 }
 .wrapper {
 	display: flex;

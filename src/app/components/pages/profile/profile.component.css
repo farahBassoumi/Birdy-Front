@@ -9,12 +9,12 @@ body{
 .gray-bg {
     background-color: #f5f5f5;
 }
-img {
-    max-width: 100%;
-}
+
 img {
     vertical-align: middle;
     border-style: none;
+    max-width: 100%;
+
 }
 .about-avatar{
 
@@ -149,4 +149,10 @@ margin-bottom: 15px;
 font-size: 30px;
 color: rgb(113, 165, 228)!important
 ; 
+  }
+  .invisibleBtn{
+
+background-color: transparent;
+border: none;
+
   }

@@ -114,6 +114,17 @@ uploadFile(file: File) {
   return this.http.post<any>('/api/upload', formData);
 }
 
-
+deleteBlog(id:testModel):Observable<any>{
+  return this.http.post<any>(
+    this.baseApiUrl + '/deleteBlog',
+    id
+  );
+}
+addView(id:testModel):Observable<any>{
+  return this.http.post<any>(
+    this.baseApiUrl + '/addView',
+    id
+  );
+}
 
 }

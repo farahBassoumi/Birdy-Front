@@ -1,5 +1,5 @@
 .featured-section{
-    background-color: rgb(39, 69, 95);
+    background-color:var(--midnight-blue);
     padding-left: 2rem;
     padding-bottom: 2rem;
     padding-right: 2rem;
@@ -33,6 +33,9 @@ h2{
     margin-top:-230px;
    /* transform: translateX(2900%) translateY(-600%);*/
   }
+ 
+
+
   .swipeRight{
     border-radius: 40px;
     background-color: whitesmoke;

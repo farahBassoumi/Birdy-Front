@@ -4,38 +4,58 @@
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Playfair+Display&display=swap');
   /*font-family: 'Inconsolata', monospace;*/
-  @font-face{
-    font-family:Playfair;
-    src:url(assets/PlayfairDisplay-Regular.ttf)
-  }
-:root{
-    --primary-color:#026467;
-    --secondary-color:#E5F5EA;
-    --body-text-color:#596392;
-    --navbar-footer-color:#F9F9F9;
-    --blue-color:    rgb(175, 227, 238);
-    --blue-navbar-color: rgb(225, 245, 255);
-    --dark-blue-color:   rgb(51, 91, 125);
+@font-face {
+  font-family: Playfair;
+  src: url(assets/PlayfairDisplay-Regular.ttf)
+}
 
+:root {
+  /*
+  --primary-color: #026467;
+  --secondary-color: #E5F5EA;
+  --body-text-color: #596392;
+  --navbar-footer-color: #F9F9F9;
+  --blue-color: rgb(175, 227, 238);
+  --blue-navbar-color: rgb(225, 245, 255);
+  --dark-blue-color: rgb(51, 91, 125);
+  */
+  /**/
+  --dark: #08131D;
+  --midnight-blue: #18344C;
+  --light-steel-blue: #B6CEDE;
+  --light-steel: #80ABC4;
+  --steel-blue: #4C7F9F;
+  --olive-green: #74813F;
+  --grainsboro: #eeebe9;
 }
-.bodyclass{
-    font-family: 'Playfair Display', serif;
-    font-size:12px;
-    color:var(--body-text-color);
+
+.bodyclass {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  color: var(--body-text-color);
 }
-.body{
+
+.body {
 
   font-family: 'Playfair Display', serif;
 
 }
 
-.absolute-center__end{
-  position:absolute;
+.absolute-center__end {
+  position: absolute;
   /*
   right: 10px;
   top : 50%;
   */
   transform: translateY(-50%);
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

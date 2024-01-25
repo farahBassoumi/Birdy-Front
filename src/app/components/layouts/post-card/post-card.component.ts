@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { blog } from 'src/app/models/blog.model';
 import { testModel } from 'src/app/models/testModel.model';
+import { BlogService } from 'src/app/services/blog.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,18 +11,23 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './post-card.component.html',
   styleUrls: ['./post-card.component.css'],
 })
-export class PostCardComponent  {
-  
+export class PostCardComponent {
   userIdRequest: testModel = {
     name: '',
   };
-  getcategoryByIdRequest:testModel={
-    name:''
-  }
+  getcategoryByIdRequest: testModel = {
+    name: '',
+  };
   authorName: string = '';
- 
-
-  constructor(private router: Router, private userService: UserService, private categoryService:CategoryService) {
+  blogIdTestModel:testModel={
+  name:''
+  }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private categoryService: CategoryService,
+    private blogService:BlogService
+  ) {
     // Default value just to satisfy TypeScript
     this.blog = {
       id: '',
@@ -37,32 +43,37 @@ export class PostCardComponent  {
   }
   @Input() blog: blog;
 
-
-
   ngOnInit() {
     this.userIdRequest.name = this.blog.userId;
     this.getblogAuthor();
-    console.log(this.blog);
-    this.getcategoryByIdRequest.name=this.blog.categorieId;
-   // this.getCategoryById();
-
+    this.getcategoryByIdRequest.name = this.blog.categorieId;
+    this.blogIdTestModel.name=this.blog.id;
+    // this.getCategoryById();
   }
-    redirectToSinglePost() {
+  redirectToSinglePost() {
     localStorage.setItem('blogId', this.blog.id);
+    this.addView();
     this.router.navigate(['/post']);
   }
 
+  addView(){
+this.blogService.addView(this.blogIdTestModel).subscribe(
+  (next) => {
+console.log(next)
+  },
+  (err) => {
+    console.log(err);
+  }
+);
+  }
+
   getblogAuthor() {
-    console.log(this.blog.id);
-    console.log(this.userIdRequest.name);
     this.userService.getUser(this.userIdRequest).subscribe(
       (next) => {
-        console.log(next);
         this.authorName = next.userName;
       },
       (err) => {
         console.log(err);
-        return '';
       }
     );
   }
@@ -72,7 +83,7 @@ export class PostCardComponent  {
     return title.length > maxlength ? title.substring(0, maxlength) : title;
   }
 
-/*
+  /*
   getCategoryById():string{
 this.categoryService.getCategoryById(this.getcategoryByIdRequest).subscribe(
   (next) => {
@@ -86,4 +97,5 @@ this.categoryService.getCategoryById(this.getcategoryByIdRequest).subscribe(
 );
 return "";
   }*/
+
 }

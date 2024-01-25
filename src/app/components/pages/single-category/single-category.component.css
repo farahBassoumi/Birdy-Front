@@ -1,23 +1,29 @@
-.bg-theme{
-    background-color: var(--primary-color);
-    padding-left: 9rem;
-    padding-right: 9rem;
+.bg-theme {
+    background-color: var(--light-steel-blue); /* Adjust the color as needed */
+    padding-left: 3vw;
+    padding-right: 3vw;
 
-    padding-bottom: 3rem;
+    padding-bottom: 3vw;
     padding-top: 2rem;
 
 
 }
-h1{
+
+h1 {
     text-transform: uppercase;
 }
-.postCard{
+.row{
+    padding-bottom:10vw;
+}
+
+.postCard {
     padding-left: 2rem;
     padding-top: 2rem;
-    
+
 }
-.form-select{
-    width:70%;
-    height:45px;
+
+.form-select {
+    width: 70%;
+    height: 45px;
     border-radius: 10px;
 }

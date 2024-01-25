@@ -10,7 +10,8 @@
     max-width: 400px; 
     border: none;
     background:transparent;
-    border-bottom: 2px solid rgb(143, 202, 238); 
+    border-bottom: 2px solid  var(--olive-green); /* Adjust the color as needed */
+
     outline: none;
     transition: border-bottom-color 0.3s ease;  
     font-size: 15px;
@@ -20,17 +21,16 @@
 
 }
 .search-bar:focus {
-  border-bottom-color: rgb(57, 138, 219); /* Adjust the color as needed */
+  border-bottom-color: var(--olive-green); /* Adjust the color as needed */
 }
 
 .navbar{
-    background-color:rgb(225, 245, 255);
+    background-color:var(--grainsboro);
     color:var(--secondary-color);
     height: 55px;
 }
 .search-input{
 border-radius: 20px;
-color:var(--primary-color);
 width:300px;
 border-color: #bebebe;
 border-width: 0px !important;
@@ -45,7 +45,7 @@ height: 30px;
     top: 50%;
     left: 10px; 
     transform: translateY(-50%);
-    color: #555; 
+    color: var(--olive-green); /* Adjust the color as needed */
   }
 
 
@@ -56,12 +56,12 @@ height: 30px;
     transform: translateY(-50%);
     transform: translateX(-50%);
 
-    color: #555;
   }
 .logo {
     size:300px;
     height:40px;
     width:45px;
+
 }
 
 .position-relative{
@@ -73,7 +73,7 @@ transform: translateX(303%);
 
 }
 .BIRDY {
-  color: black;
+  color: var(--dark);
 font-weight: bold;
   }
   .absolute-center__end{
@@ -146,5 +146,5 @@ h3{
 font-weight: bold;
 }
 .userBtn:hover{
- color:var(--blue-color) ;
+  color: var(--olive-green); /* Adjust the color as needed */
 }

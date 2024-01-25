@@ -1,4 +1,4 @@
-*{
+/*{
     width: 50vw;
 	height: 40vw;
     max-height: 40vw;
@@ -29,3 +29,179 @@
 .element{
     height:5px !important;
 }
+
+*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+body {
+    font-family: 'Playfair Display', serif;
+	background: blue;
+
+}
+.form-box {
+
+	height: 100%;
+    width: 100%;
+	background-color: rgb(255, 255, 255);
+}
+.wrapper {
+	background: whitesmoke;
+	padding: 20px;
+	width: 40vw;
+	height: 50vw;
+    border-radius: 7px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.container{
+
+    display: grid;
+    grid-template-columns: 1fr auto; /* First column takes up available space, second column is auto-sized */
+    
+}
+.element{
+	margin-top:5%;
+	margin-left: 5%;
+
+}
+.unfollowBtn{
+        text-align: right;
+        margin-right: auto;
+      
+}
+
+
+
+
+button {
+	color: #090909;
+	padding: 0.7em 1.7em;
+	font-size: 14px;
+	height: 3vw;
+	border-radius: 0.5em;
+	background: #e8e8e8;
+	cursor: pointer;
+	border: 1px solid #e8e8e8;
+	transition: all 0.3s;
+	box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  }
+  
+  button:hover {
+	border: 1px solid white;
+  }
+  
+  button:active {
+	box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:10vw;
+	box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+	background-color: #e8e8e8;
+	border-color: #eaf1f6;
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 8px;
+	font-size: 15px;
+	font-weight: 900;
+	color: rgb(31, 88, 114);
+	font-family: monospace;
+	transition: transform 400ms cubic-bezier(.68,-0.55,.27,2.5), 
+	border-color 400ms ease-in-out,
+	background-color 400ms ease-in-out;
+	word-spacing: -2px;
+  }
+  
+  @keyframes movingBorders {
+	0% {
+	  border-color: #eaf2fd;
+	}
+  
+	50% {
+	  border-color: #d6e3e9;
+	}
+  
+	90% {
+	  border-color: #b7c0c5;
+	}
+  }
+  
+  button:hover {
+	background-color: #eee;
+	transform: scale(105%);
+	animation: movingBorders 3s infinite;
+  }
+  
+ 
+  
+  .filled {
+	position: absolute;
+	opacity: 0;
+	top: 20px;
+	left: 22px;
+  }
+  
+  
+  
+  button:hover .empty {
+	opacity: 0;
+  }
+  
+  button:hover .filled {
+	opacity: 1;
+  }
+
+  */
+
+  .scrollable{
+	max-height: 50vw; /* Set a maximum height for the container */
+	overflow-y: scroll;
+
+}
+::-webkit-scrollbar {
+	width: 20px;
+  }
+  
+  ::-webkit-scrollbar-track {
+	background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+	background-color: #d6dee1;
+	border-radius: 20px;
+	border: 6px solid transparent;
+	background-clip: content-box;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+	background-color: #a8bbbf;
+  }

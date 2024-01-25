@@ -8,10 +8,10 @@
     justify-content: center;
     align-items: center;
     height: 40px;
-    background-color:var(--blue-navbar-color) !important;
+    background-color:var(--grainsboro);
   }
   .navbar a {
-    color:var(--primary-color); 
+    color:var(--midnight-blue); 
     text-decoration: none;
     margin: 0 35px; 
   }
@@ -26,6 +26,6 @@
   }
 
   .navbar-nav a.active {
-    border-bottom: 4px solid var(--dark-blue-color);
+    border-bottom: 4px solid var(--midnight-blue);
 }
   
