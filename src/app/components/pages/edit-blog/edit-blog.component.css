@@ -1,0 +1,206 @@
+.new-blog {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 3rem;
+  
+  }
+  
+  .gray-bg {
+    background-color: var(--dark-beige);
+  }
+  
+  .upload {
+    margin-top: 50px;
+  }
+  
+  .btnSave {
+    margin-top: 10px;
+    width: 200px;
+    background-color: var(--dark-blue-color);
+    margin-bottom: 10px;
+    color: whitesmoke;
+  }
+  
+  .title {
+    background-color: var(--dark-beige);
+    height: 5vw;
+    color: whitesmoke;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .titleText {
+    padding-top: 35px;
+    font-family: 'Playfair Display', serif;
+    color: rgb(56, 65, 33);
+    font-weight: bold;
+  }
+  
+  .choosePic-Container {
+    margin-top: 30px;
+    padding-bottom: 100px;
+  }
+  
+  .choosePic-Container input {
+    margin-bottom: 170px;
+  }
+  
+  .blog-content {
+    white-space: pre-line;
+  }
+  
+  .addCommentSc {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-comment {
+    height: 30px;
+    width: 30vw;
+    min-width: 100px;
+    padding: 0 1rem;
+    color: var(--olive-green);
+    font-size: small;
+    border: 1px solid var(--olive-green);
+    border-radius: 6px 0 0 6px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  
+  
+  .button--submit {
+    height: 30px;
+    width: 100px;
+    border: none;
+    color: white;
+    border-radius: 0 6px 6px 0;
+    background-color: var(--olive-green);
+    font-size: small;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+  }
+  
+  .button--submit:hover {
+    background-color: #596335;
+  }
+  
+  
+  .addCategotyLabel {
+    color: rgb(73, 73, 73);
+    font-size: small;
+    font-style: italic;
+    margin-bottom: -2vw;
+    margin-top: 2vw;
+    border: 1px white;
+    height: 10px;
+  }
+  
+  .emptySpace {
+    height: 7vw;
+  }
+  
+  
+  /*publish button*/
+  
+  .publishBtn {
+    color: rgb(108, 126, 58);
+    margin-left: 47%;
+    --color: 108, 126, 58;
+    border-radius: 5px;
+    transition: .3s;
+    background-color: rgba(var(--color), .2);
+    color: rgb(88, 105, 54);
+    fill: rgb(var(--color));
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+    font-size: 15px;
+    min-width: 40px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border: 2px solid rgb(var(--color));
+    box-shadow: 0 0 5px rgba(var(--color), .2);
+    outline: none;
+    display: flex;
+    align-items: center;
+    padding: .5em 1em;
+  }
+  
+  .publishBtn:hover {
+    box-shadow: 0 0 0 5px rgba(var(--color), .5);
+  }
+  
+  .publishBtn span {
+    transform: scale(.8);
+    transition: .3s;
+  }
+  
+  .publishBtn:hover span {
+    transform: scale(1);
+  }
+  
+  .publishBtn svg {
+    font-size: 0;
+    transform: scale(0.5) translateX(0%) rotate(-180deg);
+    transition: .3s;
+  }
+  
+  .publishBtn:hover svg {
+    font-size: 20px;
+    transform: scale(1) translateX(20%) rotate(0deg);
+  }
+  
+  .publishBtn:active {
+    transition: 0s;
+    box-shadow: 0 0 0 5px rgb(var(--color));
+  }
+  
+  /*next -button*/
+  .btn-class-name {
+    margin-left: 48%;
+    --color: 111, 142, 74;
+    border-radius: 5px;
+    transition: .3s;
+    background-color: rgba(var(--color), .2);
+    color: rgb(73, 88, 42);
+    fill: rgb(var(--color));
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+    font-size: 15px;
+    min-width: 40px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border: 2px solid rgb(var(--color));
+    box-shadow: 0 0 5px rgba(var(--color), .2);
+    outline: none;
+    display: flex;
+    align-items: center;
+    padding: .5em 1em;
+  }
+  
+  .btn-class-name:hover {
+    box-shadow: 0 0 0 5px rgba(var(--color), .5);
+  }
+  
+  .btn-class-name span {
+    transform: scale(.8);
+    transition: .3s;
+  }
+  
+  .btn-class-name:hover span {
+    transform: scale(1);
+  }
+  
+  .btn-class-name svg {
+    font-size: 0;
+    transform: scale(0.5) translateX(0%) rotate(-180deg);
+    transition: .3s;
+  }
+  
+  .btn-class-name:hover svg {
+    font-size: 20px;
+    transform: scale(1) translateX(20%) rotate(0deg);
+  }
+  
+  .btn-class-name:active {
+    transition: 0s;
+    box-shadow: 0 0 0 5px rgb(var(--color));
+  }

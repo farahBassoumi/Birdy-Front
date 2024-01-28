@@ -36,6 +36,7 @@ export class ProfileComponent {
   };
 
   ngOnInit() {
+    localStorage.setItem('modify', 'true');
     this.idUser = localStorage.getItem('userId');
     this.modify = localStorage.getItem('modify');
     this.getuserRequest.name = this.idUser;

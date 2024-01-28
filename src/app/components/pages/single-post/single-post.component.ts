@@ -274,4 +274,19 @@ sucessfullyDeleted(){
       }
     );
   }
+
+  navigateToEditBlog(){
+
+    const dialogConfig = {
+      data: {
+        // Your variable to be passed
+        template: 'followings',
+        userId: this.blogId,
+      },
+    };
+
+
+
+    this.router.navigate(['/edit-blog'], { state: dialogConfig });
+  }
 }

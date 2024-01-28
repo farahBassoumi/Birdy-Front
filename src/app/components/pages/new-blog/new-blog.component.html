@@ -1,10 +1,5 @@
 <section class="title">
-  <h2
-    class="text-center titleText"
-    style="font-family: 'Playfair Display', serif; font-weight: bold"
-  >
-    Add new blog
-  </h2>
+  <h2 class="text-center titleText mr-5">Free up your mind</h2>
 </section>
 <section class="new-blog gray-bg">
   <div class="blue">
@@ -22,13 +17,12 @@
 
       <div class="name">
         <label for="">Content:</label>
-        <textarea 
+        <textarea
           [(ngModel)]="blogRequest.content"
           class="form-control"
           id="paragraphInput"
           rows="5"
-          style="white-space: pre-wrap;"
-          
+          style="white-space: pre-wrap"
         ></textarea>
       </div>
 
@@ -46,39 +40,59 @@
             {{ category.name }}
           </option>
         </select>
-        <label for="formGroupExampleInput" class="form-label"
+        <label
+          for="formGroupExampleInput addCategotyLabel"
+          class="form-label addCategotyLabel"
           >does not exist? add one</label
         >
         <div class="row">
           <div class="col-6">
-            <input
-              [(ngModel)]="newCategory.name"
-              type="text"
-              class="form-control"
-              id="formGroupExampleInput"
-              placeholder=""
-            />
-          </div>
-          <div class="col-6">
-            <button class="btn btnSave" (click)="addCategory()">
-              add category
-            </button>
+            <div class="addCommentSc">
+              <input
+                [(ngModel)]="newCategory.name"
+                type="text"
+                class="form-control input-comment"
+                id="formGroupExampleInput"
+                placeholder=""
+              />
+              <input
+                (click)="addCategory()"
+                class="btn btnSave button--submit"
+                value="add category"
+                type="submit"
+              />
+            </div>
           </div>
         </div>
       </div>
-    
-      <button class="btn btnSave" (click)="addBlogWithoutImage()">next</button>
+
+   
+
+      <div  class="emptySpace"></div>
+
+
+      <button class="btn-class-name" (click)="addBlogWithoutImage()">
+        <span>next</span>
+        <svg
+          viewBox="0 0 320 512"
+          height="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+          ></path>
+        </svg>
+      </button>
+
+
+<div class="emptyspacesmall" style="height:3vw;"></div>
     </div>
+
     <div class="choosePic-Container" *ngIf="choosePic == true">
-
-
-
-      
-      <p style="font-size: larger" class="mb-4 ">choose an image:</p>
-      <input type="file" class="form-control " (input)="fileChoosen($event)" />
+      <p style="font-size: larger" class="mb-4">choose an image:</p>
+      <input type="file" class="form-control" (input)="fileChoosen($event)" />
       <br />
-      <button class="btn btnSave" (click)="submitPhoto()">share</button>
-
+      <button class=" publishBtn" (click)="submitPhoto()">publish</button>
     </div>
   </div>
 </section>

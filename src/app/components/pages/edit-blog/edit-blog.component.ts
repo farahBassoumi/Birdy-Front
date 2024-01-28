@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { addblog } from 'src/app/models/addBlog.model';
 import { blog } from 'src/app/models/blog.model';
 import { category } from 'src/app/models/category.model';
@@ -8,22 +8,28 @@ import { BlogService } from 'src/app/services/blog.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UploadPhotoModel } from 'src/app/models/uploadPhoto.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
-  selector: 'app-new-blog',
-  templateUrl: './new-blog.component.html',
-  styleUrls: ['./new-blog.component.css'],
+  selector: 'app-edit-blog',
+  templateUrl: './edit-blog.component.html',
+  styleUrls: ['./edit-blog.component.css']
 })
-export class NewBlogComponent implements OnInit {
+export class EditBlogComponent implements OnInit{
+
+
+
+
   image: any;
   choosePic: boolean = false;
   categories: category[] = [];
   newCategory: testModel = {
     name: '',
   };
-
+  getBlogRequest:testModel= {
+    name: '',
+  };
   chosenCategory: testModel = {
     name: '',
   };
@@ -45,15 +51,29 @@ export class NewBlogComponent implements OnInit {
     image: new FormData(),
   };
 
+
+   
+
+  
   constructor(
     private blogService: BlogService,
     private http: HttpClient,
     private categoryService: CategoryService,
     private snackBar: MatSnackBar,
-    private router:Router
+    private router:Router,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private route: ActivatedRoute
+
   ) {}
 
   ngOnInit() {
+
+      //this.getBlogRequest.name = this.data.blogId;
+      const dialogConfig = this.route.snapshot.data;
+
+   
+
+
     console.log("inside the ngOnInit new-blog");
     const userIdFromLocalStorage = localStorage.getItem('userId');
     this.blogRequest.userId = userIdFromLocalStorage || '';

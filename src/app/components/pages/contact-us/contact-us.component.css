@@ -1,64 +1,72 @@
 body{
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-family: Playfair;
+
+  font-family: Playfair;
 }
 *{
-  background-color:rgb(225, 245, 255);
-  border-radius: 50px;
+background-color:var(--olive-green);
 }
 
 .container-split {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
 
-  .container-split .left-container,
-  .container-split .right-container {
-    flex-basis: 48%; /* Adjust the width of each container as needed */
-  }
-  
-  .content{
-    margin-top: 0px;
-    font-size:larger;
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-  .right-container{
-    background-color:var(--secondary-color) ;
-    border-radius: 40px;
+.container-split .left-container,
+.container-split .right-container {
+  flex-basis: 48%; /* Adjust the width of each container as needed */
+}
 
-  }
-  h2{
-    font-weight: bold;
-  }
-  .titre{
-    margin-left: 70px;
-  }
-  .paragraph1{
-    margin-left: 70px;
-    margin-right: 70px;
+.content{
+  margin-top: 0px;
+  margin-left: 50px;
+  margin-right: 50px;
+  color:whitesmoke;
+}
+.right-container{
+ 
 
-  }
-  .form-control{
-    border-radius: 20px;
-  }
-  .left-container{
-    border-radius: 40px;
-margin-left: 40px;
-  }
-  .sendBtn{
-    border-radius: 20px;
-    margin-left: 130px;
-    width:600px;
-    background-color: var(--primary-color);
-    color:white;
-    font-weight: bolder;
-  }
-  .paragraph{
-    margin-top: -35px;
+}
+h2,h1{
+  font-weight: bold;
+  font-family: 'Playfair Display', serif ;
+  color:whitesmoke;
+  letter-spacing: 0.15em;
 
-  }
+}
+.titre{
+  margin-left: 70px;
+}
+.paragraph1{
+  margin-left: 70px;
+  margin-right: 70px;
+  color:whitesmoke;
+
+
+}
+.picture{
+  scale:-1.4 -1;
+  margin-right: 35%;
+  margin-top: 1.5vw;
+}
+
+.sendBtn{
+  border-radius: 5px;
+  width:100px;
+  background-color:rgb(255, 241, 203);
+  color:var(--olive-green);
+  font-weight: bolder;
+  border:none;
+  margin-top:-20vw ;
+}
+.paragraph{
+  margin-top: -35px;
+
+}
+.form-input{
+  background-color: rgb(255, 252, 241);
+  border-radius: 5px;
+}
+.form{
+margin-left: 15%;
+}

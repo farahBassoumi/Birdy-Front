@@ -162,7 +162,6 @@ p {
     color:var(--olive-green);
     font-size: 15px;
     border: 1px solid var(--olive-green);
-    
     border-radius: 6px 0 0 6px;
     background-color: transparent;
   }
@@ -242,9 +241,9 @@ p {
 
 
 .label {
-    background-color: rgb(227, 243, 253);
+    background-color:var(--olive-green);
     border-radius: 5px;
-    min-width: 5vw !important;
+    min-width: 3vw !important;
     padding: 2px;
     border: none;
     text-transform: uppercase;
@@ -257,8 +256,7 @@ p {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    background-color: #f8f9fa;
-    color: #353535;
+    color: #fffbfb;
     padding: 1em 3em;
     border-radius: 1em;
   }
@@ -323,13 +321,62 @@ p {
     transform: scale(1.5);
   }
   
-  .btn:hover > .icon path {
-    fill: rgb(168, 7, 7);
-  }
+ 
   
   .btn:hover::after {
     visibility: visible;
     opacity: 1;
     top: -160%;
+  }
+  /*ediy button*/
+.btnContainer{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin:0.8% 1% 0% 0;
+}
+
+  .edit-Btn {
+    position: relative;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100px;
+    height: 40px;
+    border: none;
+    padding: 0px 20px;
+    background-color:var(--light-steel);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0px rgb(77, 142, 168);
+    transition-duration: .3s;
+  }
+  
+  .svg {
+    width: 13px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    fill: white;
+    transition-duration: .3s;
+  }
+  
+  .edit-Btn:hover {
+    color: transparent;
+  }
+  
+  .edit-Btn:hover svg {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition-duration: .3s;
+  }
+  
+  .edit-Btn:active {
+    transform: translate(3px , 3px);
+    transition-duration: .3s;
+    box-shadow: 2px 2px 0px rgb(35, 79, 121);
   }
   
