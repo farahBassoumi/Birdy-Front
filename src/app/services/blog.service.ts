@@ -8,6 +8,7 @@ import { User } from '../models/user.model';
 import { addblog } from '../models/addBlog.model';
 import { testModel } from '../models/testModel.model';
 import { likingRequest } from '../models/likingRequest.model';
+import { updateBlogRequest } from '../models/updateBlogRequest.model';
 
 @Injectable({
   providedIn: 'root',
@@ -127,4 +128,11 @@ addView(id:testModel):Observable<any>{
   );
 }
 
+
+editBlog(id: string, updatedData: updateBlogRequest): Observable<any> {
+  const url = `${this.baseApiUrl}/updateBlog/${id}`;
+  return this.http.put(url, updatedData);
 }
+}
+
+

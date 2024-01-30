@@ -11,6 +11,7 @@ import { UploadPhotoModel } from 'src/app/models/uploadPhoto.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { updateBlogRequest } from 'src/app/models/updateBlogRequest.model';
 @Component({
   selector: 'app-edit-blog',
   templateUrl: './edit-blog.component.html',
@@ -28,6 +29,11 @@ export class EditBlogComponent implements OnInit {
   };
   chosenCategory: testModel = {
     name: '',
+  };
+  updateblogRequest: updateBlogRequest = {
+    Content: '',
+    Title: '',
+    CategorieId: 0,
   };
   category2: any;
   choosen: boolean = false;
@@ -51,10 +57,10 @@ export class EditBlogComponent implements OnInit {
     id: 'c2243800-ea2b-43d0-03fd-08dbfcf35573',
     image: new FormData(),
   };
-  getCategoryRequest:testModel={
-    name:''
-  }
-  categoryName:any;
+  getCategoryRequest: testModel = {
+    name: '',
+  };
+  categoryName: any;
   constructor(
     private blogService: BlogService,
     private http: HttpClient,
@@ -71,15 +77,12 @@ export class EditBlogComponent implements OnInit {
     //console.log('inside the ngOnInit editblog');
     this.getCategories();
     const userIdFromLocalStorage = localStorage.getItem('userId');
-   
   }
 
-
-  getCategories(){
+  getCategories() {
     this.categoryService.getCategories().subscribe((res) => {
       //cv
       this.categories = res;
-      
     }),
       (error: any) => {
         console.log(error);
@@ -89,30 +92,34 @@ export class EditBlogComponent implements OnInit {
   getBlogById() {
     this.blogService.getBlogsById(this.getBlogRequest).subscribe(
       (res) => {
-        this.blog=res;
-        this.getCategoryRequest.name=res.categorieId.toString();
+        this.blog = res;
+        this.getCategoryRequest.name = res.categorieId.toString();
         this.getCategoryById();
       },
       (err) => {}
     );
   }
 
-  getCategoryById(){
- 
+  getCategoryById() {
     console.log(this.getCategoryRequest.name);
-      this.categoryService.getCategoryById(this.getCategoryRequest).subscribe(
-        (res) => {
-          console.log(res);
-          this.chosenCategory.name = res.name;
-        },
-        (err) => {}
-      );
-    
-
-
+    this.categoryService.getCategoryById(this.getCategoryRequest).subscribe(
+      (res) => {
+        console.log(res);
+        this.chosenCategory.name = res.name;
+      },
+      (err) => {}
+    );
   }
 
-
+  editBlog() {
+    console.log('inside the edit blog' + this.blog.id);
+    this.blogService.editBlog(this.blog.id, this.updateblogRequest).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {}
+    );
+  }
 
   fileChoosen(event: any) {
     if (event.target.value) {
