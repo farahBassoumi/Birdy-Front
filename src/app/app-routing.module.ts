@@ -11,6 +11,7 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
 import { ModifyProfileComponent } from './components/pages/modify-profile/modify-profile.component';
 import { UserBlogsComponent } from './components/pages/user-blogs/user-blogs.component';
 import { DialogContentComponent } from './components/dialog-content/dialog-content.component';
+import { EditBlogComponent } from './components/pages/edit-blog/edit-blog.component';
 
 const routes: Routes = [
 
@@ -23,12 +24,13 @@ const routes: Routes = [
   {path:'about',component: AboutUsComponent},
   {path:'terms-conditions',component: TermsConditionsComponent},
   {path:'contact',component: ContactUsComponent},
-  {path:'k',component: NewBlogComponent},
+  {path:'k',component: ContactUsComponent},
   {path:'profile',component: ProfileComponent},
   {path:'modify',component: ModifyProfileComponent},
   {path:'see-blogs',component: UserBlogsComponent},
   {path:'dialog',component: DialogContentComponent},
   {path:'new-blog',component: NewBlogComponent},
+  {path:'edit-blog',component: EditBlogComponent},
 
 
 ];

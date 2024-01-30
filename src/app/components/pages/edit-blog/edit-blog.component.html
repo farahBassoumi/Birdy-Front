@@ -1,5 +1,5 @@
 <section class="title">
-    <h2 class="text-center titleText mr-5">Free up your mind</h2>
+    <h2 class="text-center titleText mr-5">Refine and elevate your post</h2>
   </section>
   <section class="new-blog gray-bg">
     <div class="blue">
@@ -7,7 +7,7 @@
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Title:</label>
           <input
-            [(ngModel)]="blogRequest.title"
+            [(ngModel)]="blog.title"
             type="text"
             class="form-control"
             id="formGroupExampleInput"
@@ -15,11 +15,11 @@
           />
         </div>
   
-        <div class="name">
+        <div class="name  ">
           <label for="">Content:</label>
           <textarea
-            [(ngModel)]="blogRequest.content"
-            class="form-control"
+            [(ngModel)]="blog.content"
+            class="form-control scrollable"
             id="paragraphInput"
             rows="5"
             style="white-space: pre-wrap"
@@ -71,7 +71,7 @@
         <div  class="emptySpace"></div>
   
   
-        <button class="btn-class-name" (click)="addBlogWithoutImage()">
+        <button class="btn-class-name">
           <span>next</span>
           <svg
             viewBox="0 0 320 512"

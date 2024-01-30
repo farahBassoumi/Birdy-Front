@@ -14,20 +14,16 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-edit-blog',
   templateUrl: './edit-blog.component.html',
-  styleUrls: ['./edit-blog.component.css']
+  styleUrls: ['./edit-blog.component.css'],
 })
-export class EditBlogComponent implements OnInit{
-
-
-
-
+export class EditBlogComponent implements OnInit {
   image: any;
   choosePic: boolean = false;
   categories: category[] = [];
   newCategory: testModel = {
     name: '',
   };
-  getBlogRequest:testModel= {
+  getBlogRequest: testModel = {
     name: '',
   };
   chosenCategory: testModel = {
@@ -40,51 +36,83 @@ export class EditBlogComponent implements OnInit{
   imageUrl: any;
   selectedFile?: File;
   ImageFromServer: any;
-  blogRequest: addblog = {
+  blog: blog = {
+    id: '',
     title: '',
     content: '',
-    categoryId: '',
+    categorieId: '',
+    likes: 0,
+    dislikes: 0,
     userId: '',
+    views: 0,
+    image: '',
   };
   uploadImageRequest: UploadPhotoModel = {
     id: 'c2243800-ea2b-43d0-03fd-08dbfcf35573',
     image: new FormData(),
   };
-
-
-   
-
-  
+  getCategoryRequest:testModel={
+    name:''
+  }
+  categoryName:any;
   constructor(
     private blogService: BlogService,
     private http: HttpClient,
     private categoryService: CategoryService,
     private snackBar: MatSnackBar,
-    private router:Router,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    private router: Router,
     private route: ActivatedRoute
-
   ) {}
 
   ngOnInit() {
+    this.getBlogRequest.name = localStorage.getItem('blogId')!;
+    this.getBlogById();
 
-      //this.getBlogRequest.name = this.data.blogId;
-      const dialogConfig = this.route.snapshot.data;
-
-   
-
-
-    console.log("inside the ngOnInit new-blog");
+    //console.log('inside the ngOnInit editblog');
+    this.getCategories();
     const userIdFromLocalStorage = localStorage.getItem('userId');
-    this.blogRequest.userId = userIdFromLocalStorage || '';
+   
+  }
+
+
+  getCategories(){
     this.categoryService.getCategories().subscribe((res) => {
       //cv
       this.categories = res;
+      
     }),
       (error: any) => {
         console.log(error);
       };
   }
+
+  getBlogById() {
+    this.blogService.getBlogsById(this.getBlogRequest).subscribe(
+      (res) => {
+        this.blog=res;
+        this.getCategoryRequest.name=res.categorieId.toString();
+        this.getCategoryById();
+      },
+      (err) => {}
+    );
+  }
+
+  getCategoryById(){
+ 
+    console.log(this.getCategoryRequest.name);
+      this.categoryService.getCategoryById(this.getCategoryRequest).subscribe(
+        (res) => {
+          console.log(res);
+          this.chosenCategory.name = res.name;
+        },
+        (err) => {}
+      );
+    
+
+
+  }
+
+
 
   fileChoosen(event: any) {
     if (event.target.value) {
@@ -138,19 +166,19 @@ export class EditBlogComponent implements OnInit{
     this.categoryService.getCategoryByName(this.chosenCategory).subscribe({
       next: (res: any) => {
         console.log(res.id);
-        this.blogRequest.categoryId = res.id;
+        this.blog.categorieId = res.id;
       },
       error: (err: any) => {
         console.log('erreur' + err.StatusCode);
       },
     });
   }
-
+  /*
   addBlogWithoutImage() {
     //cv
     this.choosePic = true;
 
-    console.log('blogrequest  ' + this.blogRequest.categoryId);
+    console.log('blogrequest  ' + this.blog.categoryId);
     this.blogService.addBlog(this.blogRequest).subscribe({
       next: (res: any) => {
         console.log(res.blog.id);
@@ -168,4 +196,5 @@ export class EditBlogComponent implements OnInit{
       duration: 3000, // milliseconds
     });
   }
+  */
 }

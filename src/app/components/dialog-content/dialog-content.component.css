@@ -6,7 +6,6 @@
 }
 body {
     font-family: 'Playfair Display', serif;
-	background: blue;
 
 }
 .form-box {
@@ -62,12 +61,17 @@ input[type="text"], input[type="password"] {
 	border-radius: 5px;
 }
 input[type="submit"] {
-    background-color: rgb(175, 227, 238);
+    background-color: rgb(150, 182, 189);
 	color: #fff;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(124, 149, 155);
+
 }
 @media (max-width: 768px) {
 	.wrapper {

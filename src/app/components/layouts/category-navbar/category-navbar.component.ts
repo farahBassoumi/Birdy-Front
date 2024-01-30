@@ -11,6 +11,7 @@ export class CategoryNavbarComponent {
  
 
   setActiveCategory(category: string): void {
+    console.log('inside the set active')
     this.activeCategory = category;
   }
 }

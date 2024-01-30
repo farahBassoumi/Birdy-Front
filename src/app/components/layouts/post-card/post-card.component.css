@@ -1,6 +1,6 @@
-.bg-light {
+.blogBy {
   margin-left: 5px;
-  border-radius: 20px;
+  border-radius: 2px;
   border-width: 2px;
 }
 
@@ -43,6 +43,11 @@ small {
   display: block;
   margin-top: 10px;
   margin-left: 0.5vw;
+}
+.view-more:hover{
+  color: #297bb3;
+  text-decoration: underline  ;
+ 
 }
 
 .ellipsis {
