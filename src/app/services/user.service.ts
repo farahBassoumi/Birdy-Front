@@ -29,12 +29,14 @@ export class UserService {
     ); 
   }
 
-  updateUser(user: User): Observable<boolean> {
-    return this.http.post<boolean>(
-      this.baseApiUrl + '/api/User/updateUser',
-      user
-    );
-  }
+  updateUser(user: User,id:string): Observable<any> {
+    const url = `${this.baseApiUrl}/updateUser/${id}`;
+
+    return this.http.put(url,user)
+  };
+
+ 
+  
 
 login(loginRequest:loginModel):Observable<any>{
   return this.http.post<any>(

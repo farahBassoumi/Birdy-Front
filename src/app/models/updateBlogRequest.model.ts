@@ -1,5 +1,5 @@
 export interface updateBlogRequest {
-  Content: string;
-  Title: string;
-  CategorieId: number;
+  content: string;
+  title: string;
+  categorieId: number;
 }

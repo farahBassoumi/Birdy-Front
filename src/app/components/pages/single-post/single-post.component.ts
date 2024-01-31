@@ -23,9 +23,9 @@ export class SinglePostComponent implements OnInit {
   thumbsup: boolean = false;
   thumbsdown: boolean = false;
 
-  deleteBlogRequest:testModel={
-    name:''
-    }
+  deleteBlogRequest: testModel = {
+    name: '',
+  };
 
   likingRequest: likingRequest = {
     EntityId: '',
@@ -59,9 +59,9 @@ export class SinglePostComponent implements OnInit {
     private router: Router,
     private commentService: CommentService,
     private userService: UserService,
-    private categoryService: CategoryService,
-   // private sweetAlert: Swal
-  ) {
+    private categoryService: CategoryService
+  ) // private sweetAlert: Swal
+  {
     this.blog = {
       id: '',
       title: '',
@@ -85,7 +85,7 @@ export class SinglePostComponent implements OnInit {
     this.getBlogById();
     this.likingRequest.UserId = localStorage.getItem('userId')!;
     this.likingRequest.EntityId = this.blogId;
-    this.deleteBlogRequest.name=this.blogId;
+    this.deleteBlogRequest.name = this.blogId;
 
     this.getBlogLikes();
     this.getComments();
@@ -162,19 +162,15 @@ export class SinglePostComponent implements OnInit {
     //this.likeBlog();
   }
 
-sucessfullyDeleted(){
-
-  Swal.fire({
-    position: "top-end",
-    icon: "success",
-    title: "Blog has been deleted !",
-    showConfirmButton: false,
-    timer: 2000
-  });
-
-}
-
-
+  sucessfullyDeleted() {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Blog has been deleted !',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  }
 
   thumbsDown() {
     if (!this.thumbsdown) {
@@ -259,10 +255,8 @@ sucessfullyDeleted(){
     this.router.navigate(['/category', this.categoryName]);
   }
 
-
-  
   deleteBlog() {
-    console.log(this.deleteBlogRequest.name)
+    console.log(this.deleteBlogRequest.name);
     this.blogService.deleteBlog(this.deleteBlogRequest).subscribe(
       (next) => {
         this.sucessfullyDeleted();
@@ -275,8 +269,7 @@ sucessfullyDeleted(){
     );
   }
 
-  navigateToEditBlog(){
-
+  navigateToEditBlog() {
     const dialogConfig = {
       data: {
         // Your variable to be passed
@@ -284,8 +277,6 @@ sucessfullyDeleted(){
         userId: this.blogId,
       },
     };
-
-
 
     this.router.navigate(['/edit-blog'], { state: dialogConfig });
   }

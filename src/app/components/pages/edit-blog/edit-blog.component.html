@@ -1,13 +1,16 @@
+<header>
+  <script src="sweetalert2.all.min.js"></script>
+</header>
 <section class="title">
     <h2 class="text-center titleText mr-5">Refine and elevate your post</h2>
   </section>
   <section class="new-blog gray-bg">
     <div class="blue">
-      <div *ngIf="choosePic == false">
+      <div *ngIf="choosePicPage == false">
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Title:</label>
           <input
-            [(ngModel)]="blog.title"
+            [(ngModel)]="updateblogRequest.title"
             type="text"
             class="form-control"
             id="formGroupExampleInput"
@@ -18,7 +21,7 @@
         <div class="name  ">
           <label for="">Content:</label>
           <textarea
-            [(ngModel)]="blog.content"
+            [(ngModel)]="updateblogRequest.content"
             class="form-control scrollable"
             id="paragraphInput"
             rows="5"
@@ -88,11 +91,22 @@
   <div class="emptyspacesmall" style="height:3vw;"></div>
       </div>
   
-      <div class="choosePic-Container" *ngIf="choosePic == true">
+      <div class="choosePic-Container" *ngIf="choosePicPage == true">
         <p style="font-size: larger" class="mb-4">choose an image:</p>
         <input type="file" class="form-control" (input)="fileChoosen($event)" />
+<div class="ImageContainer">
+
+  <img
+  class="blog-image img-fluid"
+  src="{{ selectedImage }}"
+  alt="posy-image"
+/>
+
+</div>
+    
         <br />
         <button class=" publishBtn" (click)="submitPhoto()">publish</button>
+        <div class="emptySpace" style="height: 40px;"></div>
       </div>
     </div>
   </section>

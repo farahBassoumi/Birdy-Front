@@ -8,16 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./modify-profile.component.css'],
 })
 export class ModifyProfileComponent implements OnInit {
-  public user: User = {
-    Id: '',
-    bio: '',
-    email: '',
-    activated: true,
-    joinDate: '12/28/2003',
-    role: 'admin',
-    username: '',
-    blogsIDs: [],
-  };
+  public user: any ;
   id: any;
 
   constructor(
@@ -27,6 +18,7 @@ export class ModifyProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
     this.route.queryParams.subscribe((params) => {
       const userString = params['user'];
       if (userString) {
@@ -37,9 +29,14 @@ export class ModifyProfileComponent implements OnInit {
   }
 
   updateUser() {
-    this.userService.updateUser(this.user).subscribe((res) => {
+    console.log(this.user.id)
+    this.userService.updateUser(this.user, this.user.id).subscribe((res) => {
       console.log(res);
+      this.router.navigate(['/profile']);
+
+    },
+    (err)=>{
+      console.log(err)
     });
-    this.router.navigate(['/profile']);
   }
 }

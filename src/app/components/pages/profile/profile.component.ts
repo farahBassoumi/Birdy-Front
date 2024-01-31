@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router, RouterStateSnapshot } from '@angular/router';
 import { testModel } from 'src/app/models/testModel.model';
 import { User } from 'src/app/models/user.model';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -25,19 +25,20 @@ export class ProfileComponent {
   ) {}
 
   public user: User = {
-    Id: '1',
-    bio: 'helooo',
-    email: '@mil',
+    Id: '',
+    bio: '',
+    email: '',
     activated: true,
-    joinDate: '12/28/2003',
-    role: 'admin',
-    username: 'farah123',
+    joinDate: '',
+    role: '',
+    username: '',
     blogsIDs: [],
   };
 
   ngOnInit() {
     localStorage.setItem('modify', 'true');
     this.idUser = localStorage.getItem('userId');
+    console.log(this.idUser)
     this.modify = localStorage.getItem('modify');
     this.getuserRequest.name = this.idUser;
     // Access the data from the route state
@@ -52,10 +53,10 @@ export class ProfileComponent {
         console.log( res);
         console.log(res.id);
         console.log(res.userName);
-
+this.user=res;
         this.user.email = res.email;
         this.user.username = res.userName;
-
+//find a solution !
       },
       (err) => {
         console.log(err);
@@ -85,7 +86,17 @@ export class ProfileComponent {
     this.router.navigate(['/see-blogs']);
   }
   navigateModify() {
-    this.router.navigate(['/modify']);
+    console.log(this.user)
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        user: JSON.stringify(this.user)
+      }
+    };
+
+console.log(navigationExtras)
+
+
+    this.router.navigate(['/modify'],navigationExtras);
   }
 
   openDialogFollowers(): void {

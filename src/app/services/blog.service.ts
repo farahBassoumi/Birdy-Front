@@ -18,15 +18,13 @@ export class BlogService {
 
   constructor(public http: HttpClient) {}
 
-  getBlogs(): Observable<blog[]> { //
+  getBlogs(): Observable<blog[]> {
+    //
     return this.http.get<blog[]>(this.baseApiUrl + '/getBlogs');
   }
 
   getBlogsByCategory(cat: category): Observable<blog[]> {
-    return this.http.post<blog[]>(
-      this.baseApiUrl + '/getBlogsByCategory',
-      cat
-    );
+    return this.http.post<blog[]>(this.baseApiUrl + '/getBlogsByCategory', cat);
   }
 
   getBlogsByCategoryName(cat: testModel): Observable<any> {
@@ -36,17 +34,11 @@ export class BlogService {
     );
   }
 
-
   getBlogsById(id: testModel): Observable<blog> {
-    return this.http.post<blog>(
-      `${this.baseApiUrl}/getBlog`,
-      id
-    );
+    return this.http.post<blog>(`${this.baseApiUrl}/getBlog`, id);
   }
   getTrendingBlogs(): Observable<blog[]> {
-    return this.http.get<blog[]>(
-      this.baseApiUrl + '/getTrendingBlogs'
-    );
+    return this.http.get<blog[]>(this.baseApiUrl + '/getTrendingBlogs');
   }
 
   getForYouBlogs(id: string): Observable<blog[]> {
@@ -67,72 +59,63 @@ export class BlogService {
     );
   }
 
-getBlogsByUser(user:testModel): Observable<any> {
-  return this.http.post<any>(
-    this.baseApiUrl + '/getBlogsByUserId',
-    user
-  );
-}
-addBlog(blog:addblog):Observable<any>{
-  return this.http.post<any>(
-    this.baseApiUrl + '/createBlog',
-    blog
-  );
-}
+  getBlogsByUser(user: testModel): Observable<any> {
+    return this.http.post<any>(this.baseApiUrl + '/getBlogsByUserId', user);
+  }
+  addBlog(blog: addblog): Observable<any> {
+    return this.http.post<any>(this.baseApiUrl + '/createBlog', blog);
+  }
 
-dislikeBlog(likingrequest:likingRequest):Observable<any>{
-  return this.http.put<any>(
-    this.baseApiUrl + '/dislikeBlog',
-    likingrequest
-  );
-}
+  dislikeBlog(likingrequest: likingRequest): Observable<any> {
+    return this.http.put<any>(this.baseApiUrl + '/dislikeBlog', likingrequest);
+  }
 
-likeBlog(likingrequest:likingRequest):Observable<any>{
-  return this.http.put<any>(
-    this.baseApiUrl + '/likeBlog',
-    likingrequest
-  );
-}
+  likeBlog(likingrequest: likingRequest): Observable<any> {
+    return this.http.put<any>(this.baseApiUrl + '/likeBlog', likingrequest);
+  }
 
-getLikes(likingrequest:likingRequest):Observable<any>{
-  return this.http.post<any>(
-    this.baseApiUrl + '/getBlogLikes',
-    likingrequest
-  );
-}
+  getLikes(likingrequest: likingRequest): Observable<any> {
+    return this.http.post<any>(
+      this.baseApiUrl + '/getBlogLikes',
+      likingrequest
+    );
+  }
 
-/*
+  /*
 uploadImage(image:any, id:string):Observable<any>{
   return this.http.post<any>(
     this.baseApiUrl + '/api/uploadImage'+id,
     image
   );
 }*/
-uploadFile(file: File) {
-  const formData = new FormData();
-  formData.append('image', file);
+  uploadFile(file: File) {
+    const formData = new FormData();
+    formData.append('image', file);
 
-  return this.http.post<any>('/api/upload', formData);
+    return this.http.post<any>('/api/upload', formData);
+  }
+
+  deleteBlog(id: testModel): Observable<any> {
+    return this.http.post<any>(this.baseApiUrl + '/deleteBlog', id);
+  }
+  addView(id: testModel): Observable<any> {
+    return this.http.post<any>(this.baseApiUrl + '/addView', id);
+  }
+
+  editBlog(id: string, updatedData: updateBlogRequest): Observable<any> {
+    const url = `${this.baseApiUrl}/updateBlog/${id}`;
+    return this.http.put(url, updatedData);
+  }
+
+  uploadImage(fd: FormData) {
+    return this.http.post<any>(
+      'https://localhost:7054/api/Blog/ImageUpload',
+      fd
+    );
+  }
+
+  deleteImage(id: string): Observable<any> {
+    const url = `${this.baseApiUrl}/updateBlog/${id}`;
+    return this.http.delete(url);
+  }
 }
-
-deleteBlog(id:testModel):Observable<any>{
-  return this.http.post<any>(
-    this.baseApiUrl + '/deleteBlog',
-    id
-  );
-}
-addView(id:testModel):Observable<any>{
-  return this.http.post<any>(
-    this.baseApiUrl + '/addView',
-    id
-  );
-}
-
-
-editBlog(id: string, updatedData: updateBlogRequest): Observable<any> {
-  const url = `${this.baseApiUrl}/updateBlog/${id}`;
-  return this.http.put(url, updatedData);
-}
-}
-
-

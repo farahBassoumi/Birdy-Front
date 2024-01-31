@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { updateBlogRequest } from 'src/app/models/updateBlogRequest.model';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-edit-blog',
   templateUrl: './edit-blog.component.html',
@@ -19,7 +20,7 @@ import { updateBlogRequest } from 'src/app/models/updateBlogRequest.model';
 })
 export class EditBlogComponent implements OnInit {
   image: any;
-  choosePic: boolean = false;
+  choosePicPage: boolean = false;
   categories: category[] = [];
   newCategory: testModel = {
     name: '',
@@ -31,9 +32,9 @@ export class EditBlogComponent implements OnInit {
     name: '',
   };
   updateblogRequest: updateBlogRequest = {
-    Content: '',
-    Title: '',
-    CategorieId: 0,
+    content: '',
+    title: '',
+    categorieId: 0,
   };
   category2: any;
   choosen: boolean = false;
@@ -53,6 +54,10 @@ export class EditBlogComponent implements OnInit {
     views: 0,
     image: '',
   };
+
+
+  selectedImage: string | ArrayBuffer | null = null;
+
   uploadImageRequest: UploadPhotoModel = {
     id: 'c2243800-ea2b-43d0-03fd-08dbfcf35573',
     image: new FormData(),
@@ -73,8 +78,6 @@ export class EditBlogComponent implements OnInit {
   ngOnInit() {
     this.getBlogRequest.name = localStorage.getItem('blogId')!;
     this.getBlogById();
-
-    //console.log('inside the ngOnInit editblog');
     this.getCategories();
     const userIdFromLocalStorage = localStorage.getItem('userId');
   }
@@ -89,10 +92,30 @@ export class EditBlogComponent implements OnInit {
       };
   }
 
+  categorySucessfullyAdded() {
+    console.log('inside the added succ')
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your category has been added!',
+      showConfirmButton: false,
+      timer: 1000,
+    });
+  }
+
   getBlogById() {
     this.blogService.getBlogsById(this.getBlogRequest).subscribe(
       (res) => {
         this.blog = res;
+        this.selectedImage=res.image;
+        this.updateblogRequest.categorieId = parseInt(
+          this.blog.categorieId,
+          10
+        );
+        this.updateblogRequest.content = this.blog.content;
+        this.updateblogRequest.title = res.title;
+
+        console.log(res);
         this.getCategoryRequest.name = res.categorieId.toString();
         this.getCategoryById();
       },
@@ -116,6 +139,7 @@ export class EditBlogComponent implements OnInit {
     this.blogService.editBlog(this.blog.id, this.updateblogRequest).subscribe(
       (res) => {
         console.log(res);
+        this.choosePicPage = true;
       },
       (err) => {}
     );
@@ -124,11 +148,26 @@ export class EditBlogComponent implements OnInit {
   fileChoosen(event: any) {
     if (event.target.value) {
       this.selectedFile = event.target.files[0];
+
     }
+
+  
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target?.result) {
+          this.selectedImage = e.target.result;
+        }
+      };
+      reader.readAsDataURL(this.selectedFile);}
+
+
+    
   }
 
   submitPhoto(): void {
     this.fd = new FormData();
+    this.uploadImageRequest.id=this.blog.id;
     if (this.selectedFile) {
       //this.fd.append('file', this.selectedFile);
 
@@ -137,43 +176,61 @@ export class EditBlogComponent implements OnInit {
 
       //  this.uploadImageRequest.image = this.fd;
       console.log(this.uploadImageRequest);
-      this.http
-        .post<any>('https://localhost:7054/api/Blog/ImageUpload', this.fd)
-        .subscribe(
-          (res) => {
-            console.log(res);
-            this.router.navigate(['see-blogs']);
-          },
 
-          (err) => {
-            console.log('error' + err);
-          }
-        );
+      this.deleteBlogImage();
+
+
+
+
+
+
+
+      this.blogService.uploadImage(this.fd) .subscribe(
+        (res) => {
+          console.log(res);
+          this.router.navigate(['see-blogs']);
+        },
+
+        (err) => {
+          console.log('error' + err);
+        }
+      );
+  
     }
   }
-  next() {
-    this.choosePic = true;
+
+  deleteBlogImage(){
+    this.blogService.deleteImage(this.blog.id) .subscribe(
+      (res) => {
+        console.log(res);
+      },
+    
+      (err) => {
+        console.log('error' + err);
+      }
+    );
   }
 
   addCategory() {
-    //cv
     this.categoryService.addCategory(this.newCategory).subscribe(
       (res) => {
+        this.newCategory.name = '';
         console.log(res);
-        this.ngOnInit();
+        this.getCategories();
+        
+  this.categorySucessfullyAdded();
       },
       (err) => {
         console.log(err);
       }
     );
-    this.ngOnInit();
   }
 
   onCategoryChange() {
     this.categoryService.getCategoryByName(this.chosenCategory).subscribe({
       next: (res: any) => {
         console.log(res.id);
-        this.blog.categorieId = res.id;
+        this.updateblogRequest.categorieId = res.id;
       },
       error: (err: any) => {
         console.log('erreur' + err.StatusCode);
@@ -204,4 +261,9 @@ export class EditBlogComponent implements OnInit {
     });
   }
   */
+
+  publish(){
+    this.submitPhoto();
+
+  }
 }

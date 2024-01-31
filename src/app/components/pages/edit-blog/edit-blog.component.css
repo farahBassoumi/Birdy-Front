@@ -34,14 +34,26 @@
     color: rgb(56, 65, 33);
     font-weight: bold;
   }
-  
-  .choosePic-Container {
-    margin-top: 30px;
-    padding-bottom: 100px;
+  /*image*/
+  .ImageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;/* Set the height of your container */
+    overflow: hidden; /* Ensure the image doesn't overflow the container */
   }
+  .blog-image {
+    width: 90%;
+    height: 90%;
+    object-fit: cover; /* Choose the appropriate value based on your needs, e.g., cover, contain, fill, etc. */
+  }
+
+
   
   .choosePic-Container input {
-    margin-bottom: 170px;
+    margin-bottom: 40px;
+  
   }
   
   .blog-content {
@@ -122,6 +134,7 @@
     display: flex;
     align-items: center;
     padding: .5em 1em;
+    margin-top: 40px;
   }
   
   .publishBtn:hover {
