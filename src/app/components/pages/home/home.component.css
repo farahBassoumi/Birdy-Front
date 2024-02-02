@@ -46,3 +46,11 @@ h2{
 
     transform: translateX(-70%) translateY(-600%);
   }
+  .swal-title{
+    font-family: 'Playfair Display', serif !important;
+
+  }
+  .containerSweetAlert{
+    font-family: 'Playfair Display', serif !important;
+    background-color: rgb(0, 0, 103);
+  }

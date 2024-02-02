@@ -48,7 +48,7 @@ export class ProfileComponent {
   }
 
   getUser() {
-    this.userService.getUser(this.getuserRequest).subscribe(
+    this.userService.getUser(this.idUser).subscribe(
       (res) => {
         console.log( res);
         console.log(res.id);

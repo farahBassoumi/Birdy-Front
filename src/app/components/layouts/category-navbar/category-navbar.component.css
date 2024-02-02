@@ -21,6 +21,13 @@
   text-transform: uppercase;
   justify-content: center;
   align-items: center;
+  font-size: 16px; /* Initial font size */
+  transition: color 0.2s ease-in-out, font-size 0.2s ease-in-out; /* Smooth transition */
+
+}
+.nav-link:hover{
+ color:var(--steel-blue) !important;
+
 }
 
 .navbar-nav {
@@ -37,6 +44,7 @@
 
 
 }
+
 
 .contact-link.active {
   border-bottom: 4px solid var(--olive-green);

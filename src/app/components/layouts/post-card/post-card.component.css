@@ -1,7 +1,14 @@
-.blogBy {
-  margin-left: 5px;
-  border-radius: 2px;
-  border-width: 2px;
+.additionalBlogInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.authorName {
+  order: 1; /* Set the order to 1 to place it on the left */
+}
+
+.creationDate {
+  order: 2; /* Set the order to 2 to place it on the right */
 }
 
 small {

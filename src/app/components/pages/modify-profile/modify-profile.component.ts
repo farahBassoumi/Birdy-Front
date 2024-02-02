@@ -8,8 +8,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./modify-profile.component.css'],
 })
 export class ModifyProfileComponent implements OnInit {
-  public user: any ;
-  id: any;
+  public user: any;
+  userid: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,7 +18,13 @@ export class ModifyProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
+    this.getUserFromProfileComponent();
+    if (this.user == null) {
+      this.userid = localStorage.getItem('userId');
+      this.getUserFromServer();
+    }
+  }
+  getUserFromProfileComponent() {
     this.route.queryParams.subscribe((params) => {
       const userString = params['user'];
       if (userString) {
@@ -27,16 +33,28 @@ export class ModifyProfileComponent implements OnInit {
       }
     });
   }
+  getUserFromServer() {
+    console.log('get user from server');
+    this.userService.getUser(this.userid).subscribe(
+      (res) => {
+        this.user = res;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 
   updateUser() {
-    console.log(this.user.id)
-    this.userService.updateUser(this.user, this.user.id).subscribe((res) => {
-      console.log(res);
-      this.router.navigate(['/profile']);
-
-    },
-    (err)=>{
-      console.log(err)
-    });
+    console.log(this.user.id);
+    this.userService.updateUser(this.user, this.user.id).subscribe(
+      (res) => {
+        console.log(res);
+        this.router.navigate(['/profile']);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

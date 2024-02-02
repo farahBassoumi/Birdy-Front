@@ -1,12 +1,7 @@
-* {
-}
-
-
-
 .post-body {
     margin-top: 20px;
     font-family: 'Playfair Display', serif;
-font-size: x-small;
+    font-size: x-small;
     color: grey;
     margin-bottom: 70px;
 
@@ -33,23 +28,48 @@ p {
 
 .rateQu {
     font-size: 130%;
-    padding-top:5px
+    padding-top: 5px
 }
 
 
 .author {
-    font-size: 130%;
-    margin-left: 70%;
-    position: absolute;
-    font-weight: bold;
-    margin-top: 1vw;
 
+    font-weight: bolder;
+
+}
+
+.author-info {
+    margin-top: 5%;
+    font-size: 120%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: flex-end;
+    /* Align items vertically in the center if needed */
+}
+
+.author,
+.creationDate {
+    display: inline;
+    margin: 0;
+}
+.creationDate{
+    margin-top: 0.2% !important;
+
+}
+
+.authorBtn {
+    border: 0px;
+    background: transparent;
+    color: rgb(86, 86, 86);
+    transition: 9s ease;
+    font-size: 110%;
+    text-transform: capitalize;
+    /**/
 }
 
 .container2 {
     display: flex;
     margin-top: 5vw;
-
 }
 
 .thumbs {
@@ -57,7 +77,7 @@ p {
     font-size: 24px;
     margin-right: 15px;
     cursor: pointer;
-    margin-top:-0.3vw;
+    margin-top: -0.3vw;
 
 }
 
@@ -67,17 +87,11 @@ p {
 
 .rating {
     font-size: 19px;
-    margin-top:-0.3vw;
+    margin-top: -0.3vw;
 
 }
 
-.authorBtn {
-    border: 0px;
-    background: transparent;
-    color: rgb(86, 86, 86);
-    transition: 9s ease; 
-    /**/
-}
+
 
 .authorBtn:hover {
     color: var(--steel-blue);
@@ -101,7 +115,7 @@ p {
     font-family: 'Playfair Display', serif;
     font-weight: bold;
     margin-right: 10px;
-    color:var(--dark);
+    color: var(--dark);
 
 }
 
@@ -153,39 +167,39 @@ p {
 .addCommentSc {
     display: flex;
     align-items: center;
-  }
-  
-  .input-comment {
+}
+
+.input-comment {
     height: 3vw;
-   width: 40vw;
+    width: 40vw;
     padding: 0 1rem;
-    color:var(--olive-green);
+    color: var(--olive-green);
     font-size: 15px;
     border: 1px solid var(--olive-green);
     border-radius: 6px 0 0 6px;
     background-color: transparent;
-  }
-  
+}
 
-  
-  .button--submit {
+
+
+.button--submit {
     height: 3vw;
-    width:8vw;
+    width: 8vw;
     border: none;
-    color:white;
+    color: white;
     border-radius: 0 6px 6px 0;
-    background-color:var(--olive-green);
+    background-color: var(--olive-green);
     font-size: 15px;
     cursor: pointer;
     transition: background-color .3s ease-in-out;
-  }
-  
-  .button--submit:hover {
-    background-color: #596335;
-  }
-  
+}
 
-  
+.button--submit:hover {
+    background-color: #596335;
+}
+
+
+
 
 /**/
 
@@ -241,7 +255,7 @@ p {
 
 
 .label {
-    background-color:var(--olive-green);
+    background-color: var(--olive-green);
     border-radius: 5px;
     min-width: 3vw !important;
     padding: 2px;
@@ -259,9 +273,9 @@ p {
     color: #fffbfb;
     padding: 1em 3em;
     border-radius: 1em;
-  }
-  
-  .tooltipp .tooltiptext {
+}
+
+.tooltipp .tooltiptext {
     font-size: smaller;
     visibility: hidden;
     text-transform: none;
@@ -273,19 +287,19 @@ p {
     border-radius: 5px;
     position: absolute;
     z-index: 1;
-    bottom:105%;
+    bottom: 105%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.4s;
-  }
-  
-  .tooltipp:hover .tooltiptext {
+}
+
+.tooltipp:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-  }
-  
- 
+}
+
+
 
 
 
@@ -306,37 +320,38 @@ p {
     background-color: transparent;
     position: relative;
     border: none;
-     margin-left: 11px;
-     margin-bottom: 6px;
-  }
-  
+    margin-left: 11px;
+    margin-bottom: 6px;
+}
 
-  
-  .icon {
+
+
+.icon {
     transform: scale(1.2);
     transition: .2s linear;
-  }
-  
-  .btn:hover > .icon {
+}
+
+.btn:hover>.icon {
     transform: scale(1.5);
-  }
-  
- 
-  
-  .btn:hover::after {
+}
+
+
+
+.btn:hover::after {
     visibility: visible;
     opacity: 1;
     top: -160%;
-  }
-  /*ediy button*/
-.btnContainer{
+}
+
+/*ediy button*/
+.btnContainer {
     position: absolute;
     right: 0;
     top: 0;
-    margin:0.8% 1% 0% 0;
+    margin: 0.8% 1% 0% 0;
 }
 
-  .edit-Btn {
+.edit-Btn {
     position: relative;
     align-items: center;
     justify-content: flex-start;
@@ -344,39 +359,38 @@ p {
     height: 40px;
     border: none;
     padding: 0px 20px;
-    background-color:var(--light-steel);
+    background-color: var(--light-steel);
     color: white;
     font-weight: 500;
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 3px 3px 0px rgb(77, 142, 168);
     transition-duration: .3s;
-  }
-  
-  .svg {
+}
+
+.svg {
     width: 13px;
     position: absolute;
     right: 0;
     margin-right: 20px;
     fill: white;
     transition-duration: .3s;
-  }
-  
-  .edit-Btn:hover {
+}
+
+.edit-Btn:hover {
     color: transparent;
-  }
-  
-  .edit-Btn:hover svg {
+}
+
+.edit-Btn:hover svg {
     right: 43%;
     margin: 0;
     padding: 0;
     border: none;
     transition-duration: .3s;
-  }
-  
-  .edit-Btn:active {
-    transform: translate(3px , 3px);
+}
+
+.edit-Btn:active {
+    transform: translate(3px, 3px);
     transition-duration: .3s;
     box-shadow: 2px 2px 0px rgb(35, 79, 121);
-  }
-  
+}

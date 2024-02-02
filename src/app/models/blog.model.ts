@@ -8,5 +8,6 @@ categorieId:string;
 likes:number;
 dislikes:number;
    image:string;
+   creationDate:string;
 
 }

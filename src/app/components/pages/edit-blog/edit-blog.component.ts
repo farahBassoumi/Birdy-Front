@@ -53,6 +53,8 @@ export class EditBlogComponent implements OnInit {
     userId: '',
     views: 0,
     image: '',
+    creationDate:''
+
   };
 
 

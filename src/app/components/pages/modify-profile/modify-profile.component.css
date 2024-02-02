@@ -14,7 +14,6 @@
 .input{
     font-size:18px;
     color:rgb(78, 88, 64);
-
     text-transform: capitalize;
 margin-bottom: 15px;
 }
@@ -32,7 +31,7 @@ margin-bottom: 15px;
     border-radius: .5em;
     transition: .3s;
     width:200px;
-    background-color: rgba(var(--color), .1);
+    background-color: rgba(var(--color), );
     color: rgb(var(--color));
     fill: rgb(var(--color));
     letter-spacing: 0.2em;
@@ -45,6 +44,7 @@ margin-bottom: 15px;
     display: flex;
     justify-content: center;
     padding: .5em 1em;
+    margin-top: 40px;
   }
   
   .btnSave:hover {

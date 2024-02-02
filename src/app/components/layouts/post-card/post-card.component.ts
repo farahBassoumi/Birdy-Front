@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { blog } from 'src/app/models/blog.model';
@@ -12,24 +13,25 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./post-card.component.css'],
 })
 export class PostCardComponent {
-  userIdRequest: testModel = {
-    name: '',
-  };
+  userId: string = '';
+
   getcategoryByIdRequest: testModel = {
     name: '',
   };
   authorName: string = '';
-  blogIdTestModel:testModel={
-  name:''
-  }
+  blogIdTestModel: testModel = {
+    name: '',
+  };
   constructor(
     private router: Router,
     private userService: UserService,
     private categoryService: CategoryService,
-    private blogService:BlogService
+    private blogService: BlogService,
+    private datePipe: DatePipe
   ) {
     // Default value just to satisfy TypeScript
     this.blog = {
+      creationDate: '',
       id: '',
       title: '',
       content: '',
@@ -44,10 +46,11 @@ export class PostCardComponent {
   @Input() blog: blog;
 
   ngOnInit() {
-    this.userIdRequest.name = this.blog.userId;
+    this.userId = this.blog.userId;
     this.getblogAuthor();
     this.getcategoryByIdRequest.name = this.blog.categorieId;
-    this.blogIdTestModel.name=this.blog.id;
+    this.blogIdTestModel.name = this.blog.id;
+    this.formatCreationDate();
     // this.getCategoryById();
   }
   redirectToSinglePost() {
@@ -56,19 +59,25 @@ export class PostCardComponent {
     this.router.navigate(['/post']);
   }
 
-  addView(){
-this.blogService.addView(this.blogIdTestModel).subscribe(
-  (next) => {
-console.log(next)
-  },
-  (err) => {
-    console.log(err);
+  addView() {
+    this.blogService.addView(this.blogIdTestModel).subscribe(
+      (next) => {
+        console.log(next);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
-);
+  formatCreationDate() {
+    const timestamp = new Date(this.blog.creationDate);
+    const formattedTimestamp = this.datePipe.transform(timestamp, 'yyyy-MM-dd');
+    this.blog.creationDate = formattedTimestamp;
+    console.log(formattedTimestamp);
   }
 
   getblogAuthor() {
-    this.userService.getUser(this.userIdRequest).subscribe(
+    this.userService.getUser(this.userId).subscribe(
       (next) => {
         this.authorName = next.userName;
       },
@@ -97,5 +106,4 @@ this.categoryService.getCategoryById(this.getcategoryByIdRequest).subscribe(
 );
 return "";
   }*/
-
 }

@@ -11,6 +11,7 @@ import { CommentService } from 'src/app/services/comment.service';
 import { UserService } from 'src/app/services/user.service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-single-post',
@@ -39,6 +40,7 @@ export class SinglePostComponent implements OnInit {
   getUserByIdRequest: testModel = {
     name: '',
   };
+  userId:string='';
   comments: comment[] = [];
   categoryName: any;
   blogId: any;
@@ -59,7 +61,9 @@ export class SinglePostComponent implements OnInit {
     private router: Router,
     private commentService: CommentService,
     private userService: UserService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private datePipe: DatePipe
+
   ) // private sweetAlert: Swal
   {
     this.blog = {
@@ -72,6 +76,7 @@ export class SinglePostComponent implements OnInit {
       userId: '',
       views: 0,
       image: '',
+      creationDate:''
     };
 
     const blogid = localStorage.getItem('blogId');
@@ -83,18 +88,28 @@ export class SinglePostComponent implements OnInit {
     this.blogidRequest.name = localStorage.getItem('blogId')!;
     this.blogId = localStorage.getItem('blogId');
     this.getBlogById();
+    this.userId=localStorage.getItem('userId')!;
     this.likingRequest.UserId = localStorage.getItem('userId')!;
     this.likingRequest.EntityId = this.blogId;
     this.deleteBlogRequest.name = this.blogId;
-
+this.formatCreationDate();
     this.getBlogLikes();
     this.getComments();
+  }
+  formatCreationDate() {
+    const timestamp = new Date(this.blog.creationDate);
+    console.log(timestamp)
+    const formattedTimestamp = this.datePipe.transform(timestamp, 'MMM d, y');
+    this.blog.creationDate = formattedTimestamp;
+    console.log(formattedTimestamp);
   }
 
   getBlogById() {
     this.blogService.getBlogsById(this.blogidRequest).subscribe(
       (res) => {
+        console.log(res)
         this.blog = res;
+        this.formatCreationDate();
         this.getUserByIdRequest.name = res.userId;
         this.getUserById();
         this.getCategoryRequest.name = res.categorieId.toString();
@@ -122,8 +137,7 @@ export class SinglePostComponent implements OnInit {
   }
 
   getUserById() {
-    //console.log(this.getUserByIdRequest.name);
-    this.userService.getUser(this.getUserByIdRequest).subscribe(
+    this.userService.getUser(this.userId).subscribe(
       (res) => {
         this.blogAuthor = res.userName;
       },
@@ -243,13 +257,7 @@ export class SinglePostComponent implements OnInit {
     }
   }
 
-  // showTooltip(event: MouseEvent): void {
-  //   this.isTooltipVisible = true;
-  // }
 
-  // hideTooltip(): void {
-  //   this.isTooltipVisible = false;
-  // }
 
   navigateToCategory(): void {
     this.router.navigate(['/category', this.categoryName]);

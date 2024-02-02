@@ -1,9 +1,7 @@
 <div class="card">
   <div class="image-container">
-<img src="{{ blog.image }}" alt="posy-image" />
+    <img src="{{ blog.image }}" alt="posy-image" />
   </div>
-
-  
 
   <div class="card-body">
     <div
@@ -13,7 +11,7 @@
       <h5 class="mt-1">{{ shortenTitle(blog.title) }}</h5>
 
       <div style="display: flex; align-items: center">
-        <i class="fa-regular fa-eye" ></i>
+        <i class="fa-regular fa-eye"></i>
         <p class="numberViews ml-2 mt-2">{{ blog.views }}</p>
       </div>
     </div>
@@ -25,9 +23,10 @@
     <a class="view-more" routerLink="/post" (click)="redirectToSinglePost()">
       view more</a
     >
-    <small class=" blogBy text-center ml-3"
-      >BLOG BY - {{ authorName }}</small
-    >
+    <div class="additionalBlogInfo">
+      <small class="authorName">Written by : {{ authorName }}</small>
+      <small class="creationDate"> {{ blog.creationDate }}</small>
+    </div>
   </div>
 </div>
 <br />

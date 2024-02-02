@@ -29,6 +29,8 @@ import { CommentComponent } from './components/layouts/comment/comment.component
 import { DialogFollowersComponent } from './components/layouts/dialog-followers/dialog-followers.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { EditBlogComponent } from './components/pages/edit-blog/edit-blog.component';
+import { DatePipe } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,7 @@ import { EditBlogComponent } from './components/pages/edit-blog/edit-blog.compon
     SweetAlert2Module,
     SweetAlert2Module.forRoot()
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -50,12 +50,20 @@
         <h1 class="title">{{ blog.title }}</h1>
 
         <p class="content">{{ blog.content }}</p>
-        <p class="author">
-          Written By
-          <button class="authorBtn Btn" (click)="navigateBlogAuthor()">
-            {{ blogAuthor }}
-          </button>
+        <div class="author-info">
+          <p class="author">
+            Written By
+            <button class="authorBtn Btn" (click)="navigateBlogAuthor()">
+              {{ blogAuthor }} 
+            </button>
+          </p>
+         <p class="creationDate">        . {{blog.creationDate}}
         </p>
+
+
+
+        </div>
+     
 
         <div class="container2">
           <p class="rateQu">Did you like this blog?</p>
