@@ -7,4 +7,6 @@ joinDate:string;
 role:string;
 username:string 
 blogsIDs:string[];
+image:string;
+
 }

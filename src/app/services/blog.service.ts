@@ -88,12 +88,7 @@ uploadImage(image:any, id:string):Observable<any>{
     image
   );
 }*/
-  uploadFile(file: File) {
-    const formData = new FormData();
-    formData.append('image', file);
-
-    return this.http.post<any>('/api/upload', formData);
-  }
+ 
 
   deleteBlog(id: testModel): Observable<any> {
     return this.http.post<any>(this.baseApiUrl + '/deleteBlog', id);

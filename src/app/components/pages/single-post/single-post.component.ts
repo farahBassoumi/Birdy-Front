@@ -20,7 +20,7 @@ import { DatePipe } from '@angular/common';
 })
 export class SinglePostComponent implements OnInit {
   blog: blog;
-  blogAuthor: string = '';
+  authorName: string = '';
   thumbsup: boolean = false;
   thumbsdown: boolean = false;
 
@@ -40,7 +40,7 @@ export class SinglePostComponent implements OnInit {
   getUserByIdRequest: testModel = {
     name: '',
   };
-  userId:string='';
+  userId: string = '';
   comments: comment[] = [];
   categoryName: any;
   blogId: any;
@@ -54,6 +54,8 @@ export class SinglePostComponent implements OnInit {
   isTooltipVisible = false;
   tooltipLeft = 0;
   tooltipTop = 0;
+  user:any;
+  author:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -62,10 +64,8 @@ export class SinglePostComponent implements OnInit {
     private commentService: CommentService,
     private userService: UserService,
     private categoryService: CategoryService,
-    private datePipe: DatePipe
-
-  ) // private sweetAlert: Swal
-  {
+    private datePipe: DatePipe // private sweetAlert: Swal
+  ) {
     this.blog = {
       id: '',
       title: '',
@@ -76,9 +76,8 @@ export class SinglePostComponent implements OnInit {
       userId: '',
       views: 0,
       image: '',
-      creationDate:''
+      creationDate: '',
     };
-
     const blogid = localStorage.getItem('blogId');
 
     this.addCommentRequest.blogId = blogid!;
@@ -88,30 +87,37 @@ export class SinglePostComponent implements OnInit {
     this.blogidRequest.name = localStorage.getItem('blogId')!;
     this.blogId = localStorage.getItem('blogId');
     this.getBlogById();
-    this.userId=localStorage.getItem('userId')!;
+    this.userId = localStorage.getItem('userId')!;
+    this.user=this.getUserById(this.userId);
     this.likingRequest.UserId = localStorage.getItem('userId')!;
     this.likingRequest.EntityId = this.blogId;
     this.deleteBlogRequest.name = this.blogId;
-this.formatCreationDate();
+    this.formatCreationDate();
+
     this.getBlogLikes();
     this.getComments();
   }
   formatCreationDate() {
-    const timestamp = new Date(this.blog.creationDate);
-    console.log(timestamp)
-    const formattedTimestamp = this.datePipe.transform(timestamp, 'MMM d, y');
-    this.blog.creationDate = formattedTimestamp;
-    console.log(formattedTimestamp);
+    console.log('format');
+    if (Date.parse(this.blog.creationDate)) {
+      const timestamp = new Date(this.blog.creationDate);
+      console.log(timestamp);
+      const formattedTimestamp = this.datePipe.transform(
+        timestamp,
+        'MMM, d, y'
+      );
+      this.blog.creationDate = formattedTimestamp;
+      console.log(formattedTimestamp);
+    }
   }
 
   getBlogById() {
     this.blogService.getBlogsById(this.blogidRequest).subscribe(
       (res) => {
-        console.log(res)
+        console.log(res);
+      this.getAuthorById(res.userId);
         this.blog = res;
         this.formatCreationDate();
-        this.getUserByIdRequest.name = res.userId;
-        this.getUserById();
         this.getCategoryRequest.name = res.categorieId.toString();
         this.getCategoryById();
       },
@@ -131,15 +137,28 @@ this.formatCreationDate();
 
   getBlogLikes() {
     this.blogService.getLikes(this.likingRequest).subscribe((res) => {
+      console.log(res);
       this.thumbsup = res.likes;
       this.thumbsdown = res.dislikes;
     });
   }
 
-  getUserById() {
-    this.userService.getUser(this.userId).subscribe(
+  getAuthorById(id:string) {
+    this.userService.getUser(id).subscribe(
       (res) => {
-        this.blogAuthor = res.userName;
+      
+        this.author = res;
+      },
+      (err) => {}
+    );
+  }
+
+  getUserById(id:string) {
+    this.userService.getUser(id).subscribe(
+      (res) => {
+        console.log(res)
+        this.user=res;
+
       },
       (err) => {}
     );
@@ -256,8 +275,6 @@ this.formatCreationDate();
       );
     }
   }
-
-
 
   navigateToCategory(): void {
     this.router.navigate(['/category', this.categoryName]);

@@ -101,12 +101,21 @@ p {
 
 .img-fluid {
     margin-right: 10px;
+    width: 100%; /* Make the image fill the circular frame */
 
 }
 
 .rounded-circle {
     height: 40px;
     width: 40px;
+    overflow: hidden; /* Clip the content outside the circular frame */
+    object-fit: cover;
+}
+.author-img{
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+margin-top: -3px !important;
 }
 
 
@@ -359,12 +368,14 @@ p {
     height: 40px;
     border: none;
     padding: 0px 20px;
-    background-color: var(--light-steel);
-    color: white;
+    background-color: var(--grainsboro);
+
+    color: rgb(125, 109, 87);
     font-weight: 500;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 3px 3px 0px rgb(77, 142, 168);
+
+    box-shadow: 3px 3px 0px rgba(221, 213, 187, 0.596);
     transition-duration: .3s;
 }
 
@@ -373,7 +384,7 @@ p {
     position: absolute;
     right: 0;
     margin-right: 20px;
-    fill: white;
+    fill: rgb(125, 109, 87);
     transition-duration: .3s;
 }
 

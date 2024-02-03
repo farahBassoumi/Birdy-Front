@@ -51,10 +51,15 @@
 
         <p class="content">{{ blog.content }}</p>
         <div class="author-info">
+          <img
+          class="author-img img-fluid img-responsive rounded-circle"
+          src="{{user.image}}"
+          width="38"
+        />
+
           <p class="author">
-            Written By
             <button class="authorBtn Btn" (click)="navigateBlogAuthor()">
-              {{ blogAuthor }} 
+              {{ author.userName }} 
             </button>
           </p>
          <p class="creationDate">        . {{blog.creationDate}}
@@ -106,7 +111,7 @@
             <div class="d-flex flex-row add-comment-section mb-4">
               <img
                 class="img-fluid img-responsive rounded-circle"
-                src="https://i.imgur.com/qdiP4DB.jpg"
+                src="{{user.image}}"
                 width="38"
               />
               <div class="addCommentSc">

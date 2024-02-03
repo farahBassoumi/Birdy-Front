@@ -82,8 +82,7 @@ export class NewBlogComponent implements OnInit {
 
       //  this.uploadImageRequest.image = this.fd;
       console.log(this.uploadImageRequest);
-      this.http
-        .post<any>('https://localhost:7054/api/Blog/ImageUpload', this.fd)
+      this.blogService.uploadImage(this.fd)
         .subscribe(
           (res) => {
             console.log(res);

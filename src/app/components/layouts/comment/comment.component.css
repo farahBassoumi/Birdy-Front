@@ -95,6 +95,18 @@ font-style: italic;
 }
 
 
+.img-fluid {
+    margin-right: 10px;
+    width: 100%; /* Make the image fill the circular frame */
+margin-bottom:-10px
+}
+
+.rounded-circle {
+    height: 30px;
+    width: 30px;
+    overflow: hidden; /* Clip the content outside the circular frame */
+    object-fit: cover;
+}
 
    .commentReply{
     margin-top: 12px;
@@ -125,6 +137,7 @@ font-style: italic;
         width:100px;
         background-color: var(--blue-color);
         margin-left: 10px;
+        
     }
     .commentBtn:hover{
         color:white;
@@ -135,11 +148,15 @@ font-style: italic;
 
     }
     .liking{
+border:none;
        background: transparent;
-       border: none;
-       color:gray;
+       color:rgb(145, 145, 145);
        
     }
+    .liking:hover{
+       
+        color:rgb(99, 99, 99);
+     }
     .liked{
         color: var(--olive-green);
 

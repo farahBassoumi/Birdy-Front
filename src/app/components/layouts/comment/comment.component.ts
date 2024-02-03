@@ -3,6 +3,7 @@ import { comment } from 'src/app/models/comment.model';
 import { likingRequest } from 'src/app/models/likingRequest.model';
 import { testModel } from 'src/app/models/testModel.model';
 import { CommentService } from 'src/app/services/comment.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-comment',
@@ -16,11 +17,11 @@ export class CommentComponent implements OnInit {
   }
   thumbsup: boolean = false;
   thumbsdown: boolean = false;
-
+  commentatorImage:string='';
 getcommentRequest:testModel={
   name:''
 }
-  constructor(private commentService:CommentService) {
+  constructor(private commentService:CommentService, private userService:UserService) {
   this.comment={
       id:'',
       blogId:'',
@@ -30,7 +31,6 @@ getcommentRequest:testModel={
       content:'',
       creationDate:'',
       author: {
-        
           id :'',
           userName :''
         }
@@ -41,6 +41,7 @@ getcommentRequest:testModel={
 
 
 ngOnInit(){
+  this.getCommentator();
   this.likingRequest.EntityId=this.comment.id;
   this.likingRequest.UserId=localStorage.getItem('userId')!;
   this.getCommentLikes();
@@ -51,7 +52,15 @@ this.getcommentRequest.name=this.comment.id;
 }
 
 
-
+getCommentator(){
+this.userService.getUser(this.comment.author.id).subscribe(
+  (res) => {
+    this.commentatorImage=res.image;
+    
+  },
+  (err) => {}
+);
+}
 
 likeComment(){
   this.commentService.likeComment(this.likingRequest).subscribe(

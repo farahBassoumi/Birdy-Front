@@ -47,5 +47,11 @@ export class UserService {
     this.url = `${this.baseApiUrl}/api/User/setBioEmptyString/${id}`;
     return this.http.patch<any>(this.url,id);
   }
+  uploadImage(fd: FormData) {
+    return this.http.post<any>(
+      this.baseApiUrl +'/api/User/ImageUpload',
+      fd
+    );
+  }
  
 }

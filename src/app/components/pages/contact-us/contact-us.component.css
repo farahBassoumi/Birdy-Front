@@ -52,12 +52,20 @@ h2,h1{
 
 .sendBtn{
   border-radius: 5px;
-  width:100px;
-  background-color:rgb(255, 241, 203);
+  width:90px;
+  background-color: rgb(255, 252, 241);
+  box-shadow: 5px 5px 5px #4d5333;
+padding: 4px;
   color:var(--olive-green);
   font-weight: bolder;
   border:none;
   margin-top:-20vw ;
+  transform: 3s ease;
+}
+.sendBtn:hover{
+  transform: 3s ease;
+
+  background-color: rgb(225, 247, 165);
 }
 .paragraph{
   margin-top: -35px;
@@ -66,6 +74,8 @@ h2,h1{
 .form-input{
   background-color: rgb(255, 252, 241);
   border-radius: 5px;
+  box-shadow: 5px 5px 5px #4d5333;
+
 }
 .form{
 margin-left: 15%;

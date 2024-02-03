@@ -60,19 +60,7 @@ input[type="text"], input[type="password"] {
 	border: 1px solid #ccc;
 	border-radius: 5px;
 }
-input[type="submit"] {
-    background-color: rgb(150, 182, 189);
-	color: #fff;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
 
-input[type="submit"]:hover {
-    background-color: rgb(124, 149, 155);
-
-}
 @media (max-width: 768px) {
 	.wrapper {
 		flex-direction: column;
@@ -89,9 +77,9 @@ input[type="submit"]:hover {
  
 }
 .welcome{
-    
-    margin-top: -30px;
-    margin-bottom: 40px;
+    font-size: small;
+    margin-top: -20px;
+    margin-bottom: 30px;
 }
 .forgotPassword{
     color:black;
@@ -127,3 +115,49 @@ width:180px;
     margin-bottom: 30px;
     font-size: large;
 }
+
+.login-btn {
+	width: 250px;
+
+	color: white;
+	padding: 0.7em 1.7em;
+	font-size: 18px;
+	border-radius: 0.5em;
+	background-color: var(--olive-green);
+	cursor: pointer;
+	border: 1px solid #e8e8e8;
+	transition: all 0.3s;
+	box-shadow: 6px 6px 12px #b9cbcd, -6px -6px 12px #ffffff;
+  }
+  
+  .login-btn:hover {
+	border: 1px solid white;
+  }
+  
+  .login-btn:active {
+	box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+  }
+
+
+  .signUp-btn {
+	width: 250px;
+
+	color: white;
+	padding: 0.7em 1.7em;
+	font-size: 18px;
+	border-radius: 0.5em;
+	background-color: var(--olive-green);
+	cursor: pointer;
+	border: 1px solid #e8e8e8;
+	transition: all 0.3s;
+	box-shadow: 6px 6px 12px #b9cbcd, -6px -6px 12px #ffffff;
+  }
+  
+  .signUp-btn:hover {
+	border: 1px solid white;
+  }
+  
+  .signUp-btn:active {
+	box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+  }
+  

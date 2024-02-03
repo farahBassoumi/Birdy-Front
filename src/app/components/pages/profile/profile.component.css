@@ -1,5 +1,5 @@
 .section {
-  padding: 3vw;
+  padding: 5vw;
 }
 
 .gray-bg {
@@ -31,6 +31,49 @@ img {
   /* Set the width of your container */
   height: 450px; 
 }
+
+
+
+  .editPhotoContainer {
+   display:flex;
+   flex-direction: column;
+   align-content: flex-end;
+
+}
+
+.editPhotoBtn {
+  margin: 5px !important;
+
+    position: absolute;
+    align-self: flex-end; /* Align to the end of the container */
+  align-content: flex-end;
+    width: 60px;
+    height: 40px;
+    border: none;
+    padding: 0px 20px;
+    background-color: rgba(238, 234, 218, 0.763) !important;
+
+    color: rgb(125, 109, 87);
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 7px;
+
+    box-shadow: 3px 3px 2px rgba(221, 213, 187, 0.596);
+}
+svg {
+
+  fill: rgb(110, 97, 78) !important;
+  transition-duration: .2s;
+  width:100%
+}
+.editPhotoBtn:hover{
+  font-size: 120%;
+  background-color: rgba(238, 234, 218, 0.9) !important;
+
+}
+
+
+
 
 /* About Me 
 ---------------------*/
@@ -133,17 +176,62 @@ img {
 
 }
 
-.modifyBtn {
-  justify-content: flex-end;
-  width: 70px;
+
+
+
+.edit-Btn {
+  position: relative;
+
+  width: 80px;
   height: 40px;
-  background-color: rgb(113, 165, 228);
-  color: white;
   border: none;
-  border-radius: 5px;
+  background-color: var(--grainsboro);
+
+  color: rgb(125, 109, 87);
+  font-weight: 500;
   cursor: pointer;
-  margin-right: 5px;
+  border-radius: 7px;
+padding-right: 10px !important;
+  box-shadow: 3px 3px 1px rgba(221, 213, 187, 0.596);
+  transition-duration: .3s;
 }
+
+.svg {
+  margin-top: 3px;
+  width: 13px;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  fill: rgb(125, 109, 87);
+  transition-duration: .3s;
+}
+
+.edit-Btn:hover {
+  color: transparent;
+}
+
+.edit-Btn:hover svg {
+  margin-top: 3px !important;
+
+  right: 43%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition-duration: .3s;
+}
+
+.edit-Btn:active {
+  transform: translate(3px, 3px);
+  transition-duration: .3s;
+  box-shadow: 2px 2px 0px rgb(164, 158, 113);
+}
+
+
+
+
+
+
+
 
 .count {
   font-family: 'Playfair Display', serif;
@@ -155,3 +243,42 @@ img {
   background-color: transparent;
   border: none;
 }
+
+.choosePic-Container {
+  padding-bottom: 100px;
+  margin-right: 50px;
+}
+
+
+
+
+
+.saveBtn {
+  color:rgb(64, 63, 50);
+  border-radius: .3em;
+  transition: .3s;
+  width:80px;
+  max-width: 200;
+  min-width: 60px;
+  background-color: white;
+  color: rgb(var(--color));
+  fill: rgb(var(--color));
+  letter-spacing: 0.1em;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 5px  rgb(139, 196, 243);
+  outline: none;
+  display: flex;
+  justify-content: center;
+  padding: .5em 1em;
+  margin-left:10px;
+}
+
+.saveBtn:hover {
+  background-color:  rgb(223, 241, 255);
+  box-shadow: 0 0 5px  rgb(192, 227, 255);
+
+}
+
