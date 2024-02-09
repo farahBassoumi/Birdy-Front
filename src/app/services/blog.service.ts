@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { blog } from '../models/blog.model';
@@ -9,6 +9,7 @@ import { addblog } from '../models/addBlog.model';
 import { testModel } from '../models/testModel.model';
 import { likingRequest } from '../models/likingRequest.model';
 import { updateBlogRequest } from '../models/updateBlogRequest.model';
+
 
 @Injectable({
   providedIn: 'root',
@@ -62,7 +63,17 @@ export class BlogService {
   getBlogsByUser(user: testModel): Observable<any> {
     return this.http.post<any>(this.baseApiUrl + '/getBlogsByUserId', user);
   }
+
+
+
   addBlog(blog: addblog): Observable<any> {
+    const token = localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `bearer ${token}`,
+    });
+    console.log(headers);
     return this.http.post<any>(this.baseApiUrl + '/createBlog', blog);
   }
 
@@ -88,7 +99,6 @@ uploadImage(image:any, id:string):Observable<any>{
     image
   );
 }*/
- 
 
   deleteBlog(id: testModel): Observable<any> {
     return this.http.post<any>(this.baseApiUrl + '/deleteBlog', id);

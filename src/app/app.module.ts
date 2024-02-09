@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoryNavbarComponent } from './components/layouts/category-navbar/category-navbar.component';
@@ -30,6 +30,7 @@ import { DialogFollowersComponent } from './components/layouts/dialog-followers/
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { EditBlogComponent } from './components/pages/edit-blog/edit-blog.component';
 import { DatePipe } from '@angular/common';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,12 @@ import { DatePipe } from '@angular/common';
     SweetAlert2Module,
     SweetAlert2Module.forRoot()
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

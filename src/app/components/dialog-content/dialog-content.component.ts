@@ -27,9 +27,9 @@ export class DialogContentComponent {
       password: '7Ahh.h',
     };
     this.signUpRequest = {
-      username: 'farah2',
+      username: 'farah3',
       password: '7Ahh.h',
-      email: 'farah2@mail',
+      email: 'farah3@mail',
     };
     this.template = data.template;
   }
@@ -71,6 +71,11 @@ export class DialogContentComponent {
   }
 
   signUp() {
+    console.log(this.signUpRequest.email)
+    console.log(this.signUpRequest.password)
+
+    console.log(this.signUpRequest.username)
+
     this.userService.signUp(this.signUpRequest).subscribe(
       (res) => {
         console.log(res);

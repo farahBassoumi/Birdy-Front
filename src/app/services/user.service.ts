@@ -41,7 +41,7 @@ export class UserService {
     );
   }
   signUp(signUpRequest: SignUpModel): Observable<any> {
-    return this.http.post<any>(this.baseApiUrl + '/Register', signUpRequest);
+    return this.http.post<any>(this.baseApiUrl + '/api/Register', signUpRequest);
   }
   ignoreBioNull(id: string): Observable<any> {
     this.url = `${this.baseApiUrl}/api/User/setBioEmptyString/${id}`;
